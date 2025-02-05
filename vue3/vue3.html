@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>VUE3</title>
+</head>
+<body>
+  <p id="alInicio" class="principio"></p>
+  <header class="header">
+<span class="span1">VUE3 COMPONENT API</span>
+<a href="#alInicio"><img src="../media/CERVERA.png" alt="" class="img1"></a>
+  </header>
+  <!-- ///////////////////////////////////////////////////////// -->
+<h1 class="h1">VUE3</h1>
+<div class="main">
+  <ol>
+    <li class="lih"><a href="#1">Instalación y creación de un Proyecto</a> </li>
+    <li class="lih"><a href="#2">Los Componentes, Interpolación y Snippets</a></li>
+    <li class="lih"><a href="#3">Condicionales IF-SHOW</a></li>
+    <li class="lih"><a href="#4">v-for</a></li>
+    <li class="lih"><a href="#">v-bind </a></li>
+    <li class="lih"><a href="#">v-model</a></li>
+    <li class="lih"><a href="#">Checkbox</a></li>
+    <li class="lih"><a href="#">Select</a></li>
+    <li class="lih"><a href="#9"></a></li>
+    <li class="lih"><a href="#10"></a></li>
+    <li class="lih"><a href="#11"></a></li>
+  </ol>
+</div> <br><br><hr><hr>
+
+  <!-- ///////////////////////////////////////////////////////// -->
+<section id="1">
+  <h2 class="h1">Primera Instalación </h2>
+    <ol>
+
+<li><details class="select">
+<summary>Instalación Básica</summary>
+<ol>
+    <li class="li">Instalar Node LTS de la pagina Oficial </li>
+    <li class="li">Confirmar en la terminal con : <br>node --version </li>
+    <li class="li">Instalar el CLI usando la terminal: <br> npm install -g @vue/cli</li>
+    <li class="li">Confirmar con: <br> vue --version</li>
+    <li class="li">En Chrome Vue.js devtools</li>
+    <li class="li">Instalar VSCode</li>
+    <li class="li">En VSCode extensiones: <br> vue3 snippets <br> vue language features VOLAR</li>
+  </ol>
+  </details></li>
+  <!-- ********************************************************* -->
+<li><details class="select">
+  <summary>Crear un Proyecto</summary>
+  <ol>
+    <li class="li">Crear una carpeta en el escritorio</li>
+    <li class="li">Llevarla a VSCode</li>
+    <li class="li">En el terminal: <br> vue create nombreDeProyecto //enter</li>
+    <li class="li">Instalación manual: babel, typescript, linter // enter</li>
+    <li class="li">Ir al proyecto y npm run serve </li>
+    <h3>Inicio </h3>
+<pre>
+
+</pre>
+    <li class="li">Abrir el App.vue y borrar todo, haciendo la estructura básica de un componente</li>
+    <li class="li">Usar el html, y el css (template y style)</li>
+    <li class="li">Poner un h1, y color a la pagina el app.vue sin scoped en el style </li>
+  </ol>
+</details></li>
+<!-- ************************************ -->
+<li><details class="select">
+  <summary></summary>
+  <ol>
+    <li class="li"></li>
+  </ol>
+</details></li>
+<!-- ******************************* -->
+  </ol>
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="2">
+  <h2 class="h1">Componentes</h2>
+<ol>
+  <li><details class="select">
+    <summary>Los Componentes </summary>
+    <ol>
+      <li class="li">Crear un componente de un botón y enlazarlo con el app</li>
+      <li class="li">Crear una tarjeta que incluya el componente botón y enlazar la card con el app</li>
+      <li class="li">Crear un contenedor y enlazarlo con el app que incluya varios cards</li>
+    </ol>
+  </details></li>
+  <li><details class="select">
+    <summary>Interpolar Textos</summary>
+<ol>
+  <li> un componente e interpolar un texto: El alumno a : APROBADO		</li>
+      <li>Llamarlo desde el app.vue para verlo en pantalla	</li>	
+      <li>Hace una variable color y darle color al elemento	</li>	
+</ol>
+<img src="../media/vue/interpolar.PNG" class="img1">
+  </details></li>
+<!-- **************************** -->
+<li><details class="select">
+  <summary>Snippets</summary>
+  <ol>
+    <li class="li"> PEGAR EL CÓDIGO QUE SE QUIERE EN LA DIRECCIÓN WEB</li>
+<li class="li"> poner la descripción y como se llama (TRIGGER)</li>
+<li class="li">  SE COPIA Y SE LLEVA VSCODE 	</li>
+<li class="li">  A FRAGMENTOS DE USUARIO Y PARA QUE LENGUAJES	</li>
+<li class="li">  y en ese JSON se pega	</li>
+<li class="li"></li>
+  </ol>
+  <a href="https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode">SNIPPET-GENERATOR</a> <br><br><br><br>
+  
+<img src="../media/vue/snippet.png" alt="" class="img"> 
+</details></li>
+<!-- ******************************* -->
+<li><details class="select">
+  <summary></summary>
+  <ol>
+    <li class="li"></li>
+  </ol>
+</details></li>
+<!-- ******************************* -->
+</ol>
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="3">
+  <h2 class="h1"> Condicionales</h2>
+<ol>
+  <li><details class="select">
+    <summary>V-IF</summary>
+   <p>
+   <h4> v-if (Renderizado condicional)</h4>
+    •	Se usa para añadir o quitar elementos del DOM según una condición. <br>
+    •	Si la condición es false, el elemento no existe en el DOM.<br>
+    •	Tiene un mayor costo de rendimiento cuando cambia frecuentemente, ya que Vue agrega o elimina el nodo completamente.
+    
+   </p>
+   <pre>
+    &lt;template>
+      &lt;button @click="mostrar = !mostrar">Mostrar / Ocultar&lt;/button>
+      &lt;p v-if="mostrar">Este texto aparece y desaparece del DOM&lt;/p>
+    &lt;/template>
+    
+    &lt;script setup>
+    import { ref } from 'vue';
+    
+    const mostrar = ref(true);
+    &lt;/script>
+    
+   </pre>
+   <p>Cuando mostrar es false, desaparece completamente del DOM. <br><br>
+    Regla general: <br>
+    •	Usa v-if cuando la condición cambia pocas veces. <br>
+    •	Usa v-show cuando la condición cambia frecuentemente.
+  </p>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>V-SHOW </summary>
+    <p>
+      <h4>v-show (Visibilidad condicional)</h4>
+•	Controla la visibilidad del elemento mediante display: none; en CSS. <br>
+•	El elemento siempre está en el DOM, pero se oculta visualmente.<br>
+•	Es más eficiente si necesitas mostrar/ocultar elementos con frecuencia, ya que solo cambia un estilo CSS.
+
+    </p>
+    <pre>
+      &lt;template>
+        &lt;button @click="visible = !visible">Mostrar / Ocultar&lt;/button>
+        &lt;p v-show="visible">Este texto solo se oculta visualmente&lt;/p>
+      &lt;/template>
+      
+      &lt;script setup>
+      import { ref } from 'vue';
+      
+      const visible = ref(true);
+      &lt;/script>
+      
+    </pre>
+    <p>Cuando visible es false, sigue en el DOM, pero no es visible. <br><br>
+      Regla general: <br>
+      •	Usa v-if cuando la condición cambia pocas veces. <br>
+      •	Usa v-show cuando la condición cambia frecuentemente.
+      
+    </p>
+  </details></li>
+  <!-- ******************************* -->
+  <r><details class="select">
+    <summary>Ejercicios</summary>
+    <ol>
+ <ol>
+  <li>
+    <h3>Mostrar un mensaje si el usuario está autenticado </h3>
+<pre>
+  &lt;template>
+  &lt;div>
+      &lt;h1 v-show="login===true" class="green">Usuario autenticado &lt;/h1>
+      &lt;h1 v-show="login===false" class="peru">Falta autenticar &lt;/h1>
+  &lt;/div>
+&lt;/template>
+&lt;!-- ************************************* -->
+&lt;script setup>
+let login = false
+&lt;/script>
+&lt;!-- ************************************* -->
+&lt;style scoped>
+.green{
+background-color: green;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+
+}
+
+.peru{
+background-color: peru;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+}
+&lt;/style>
+</pre>
+<img src="../media/ifAutenticar.png" alt="ifAutenticar" class="img">
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+  <li>
+    <h3>Alternar entre dos mensajes </h3>
+<pre>
+  &lt;template>
+  &lt;div>
+      &lt;h1 v-show="mensaje===true" class="green">¡Hola, bienvenido! &lt;/h1>
+      &lt;h1 v-show="mensaje===false" class="peru">¡Nos vemos pronto! &lt;/h1>
+  &lt;/div>
+&lt;/template>
+&lt;!-- ************************************* -->
+&lt;script setup>
+let mensaje = true
+&lt;/script>
+&lt;!-- ************************************* -->
+&lt;style scoped>
+.green{
+background-color: green;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+
+}
+
+.peru{
+background-color: peru;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+}
+&lt;/style>
+</pre>
+   <img src="../media/ifBienvenido.png" alt="ifBienvenido" class="img"> 
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <li>
+    <h3>Mostrar un formulario solo si el usuario hace clic en un botón </h3>
+<pre>
+  &lt;template>
+  &lt;button @click="formulario = !formulario" class="btn">Mostrar formulario&lt;/button>
+  &lt;form v-if="formulario">
+    &lt;input type="text" placeholder="Escribe tu nombre" class="input"/>
+  
+    &lt;button type="submit" class="btn">Enviar&lt;/button>
+  &lt;/form>
+&lt;/template>
+&lt;!-- ******************************* -->
+&lt;script setup>
+import { ref } from 'vue';
+
+const formulario = ref(false);
+&lt;/script>
+&lt;!-- ******************************* -->
+&lt;style scoped>
+.btn{
+  color: white;
+  background-color: green;
+  padding: 0.4em;
+  border-radius: 0.5em;
+  margin: 1em;
+}
+
+.input{
+  font-size: 1.5em;
+  font-style: italic;
+  color: brown;
+  border: 2px solid peru;
+}
+&lt;/style>
+</pre>
+    <img src="../media/ifForm.png" alt="ifForm" class="img">
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <li>
+    <h3>Mostrar una alerta si la edad es menor de 18 </h3>
+<pre>
+  &lt;template>
+  &lt;h2 class="h2">Tu edad es: {{ age }} años&lt;/h2>
+ &lt;p v-if="age &lt; 18" class="green">Eres menor de edad.&lt;/p>
+ &lt;p v-else-if="age >17 " class="peru">Eres Mayor de edad.&lt;/p>
+&lt;/template>
+&lt;!-- *************************************** -->
+&lt;script setup>
+
+const age = 65;
+&lt;/script>
+&lt;!-- *************************************** -->
+
+&lt;style>
+.h2{
+border: 2px solid brown;
+margin: 1em;
+padding: 0.5em;
+width: 12em;
+}
+
+.green{
+background-color: green;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+}
+
+.peru{
+background-color: peru;
+color: white;
+width: 20em;
+height: 4em;
+display: flex;  
+justify-content: center; /* Alineación horizontal */  
+align-items: center;    /* Alineación vertical */  
+}
+&lt;/style>
+</pre>
+<img src="../media/ifEdad.png" alt="ifEdad" class="img">
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+  <li>
+    Un programa que muestre lo siguiente<br>
+    SI ahorro > 1000 ==> excelente cliente 		 <br>
+    mayor a 600 => Cliente en Proceso		 <br>
+     de lo contrario => En Inicio		 <br>
+    SE PUEDE USAR IF PARA CANTIDADES Y SHOW PARA TEXTO, PREFERENTEMENTE <br> pero ambas funcionan en cualquier caso 	 <br>
+    <pre>
+
+    </pre>
+
+<img src="../media/vue/IfShow.PNG" alt="IfShow">
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <li>
+    <h3>Mostrar un mensaje si la lista está vacía </h3>
+<pre>
+  &lt;template>
+  &lt;p v-if="items.length === 0">No hay elementos en la lista.&lt;/p>
+  &lt;ul v-else>
+    &lt;li v-for="(item, index) in items" :key="index">{{ item }}&lt;/li>
+  &lt;/ul>
+&lt;/template>
+
+
+&lt;script setup>
+import { ref } from 'vue';
+
+const items = ref([]);
+&lt;/script>
+</pre>
+    
+  </li>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <li>
+    <h3>Mostrar un mensaje de error si un campo está vacío </h3>
+<pre>
+  &lt;template>
+  &lt;input v-model="name" type="text" placeholder="Escribe tu nombre" />
+  &lt;p v-if="name === ''" style="color: red;">El nombre es obligatorio.&lt;/p>
+&lt;/template>
+
+&lt;script setup>
+import { ref } from 'vue';
+
+const name = ref('');
+&lt;/script>
+</pre>
+    
+  </li>
+  <li>
+    <h3>Mostrar/ocultar detalles de un producto </h3>
+<pre>
+  &lt;template>
+  &lt;button @click="showDetails = !showDetails">
+    {{ showDetails ? 'Ocultar detalles' : 'Ver detalles' }}
+  &lt;/button>
+  
+  &lt;div v-if="showDetails">
+    &lt;p>Precio: $20.00&lt;/p>
+    &lt;p>Stock: Disponible&lt;/p>
+    &lt;p>Descripción: Producto de alta calidad.&lt;/p>
+  &lt;/div>
+&lt;/template>
+
+&lt;script setup>
+import { ref } from 'vue';
+
+const showDetails = ref(false);
+&lt;/script>
+</pre>
+    
+  </li>
+</ol>
+
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1">V-FOR</h2>
+  <ol>
+  <li><details class="select">
+    <summary>Definición y ejemplo </summary>
+    <p>v-for es una directiva en Vue que permite iterar sobre listas de datos para generar elementos dinámicamente en el DOM. </p>
+    <pre>
+      &lt;template>
+        &lt;ul>
+          &lt;li v-for="item in lista" :key="item.id">
+            {{ item.nombre }}
+          &lt;/li>
+        &lt;/ul>
+      &lt;/template>
+      
+      &lt;script setup>
+      import { ref } from 'vue';
+      
+      const lista = ref([
+        { id: 1, nombre: 'Juan' },
+        { id: 2, nombre: 'María' },
+        { id: 3, nombre: 'Carlos' }
+      ]);
+      &lt;/script>
+      
+    </pre>
+<ol>
+  <p>
+    DEL 1 AL 10 separado por guion o espacio <br>
+    iterar las letras de una palabra <br>
+    iterar un array de números o letras<br>
+    iterar un objeto
+  </p>
+    <img src="../media/vue/v-for.png" alt="" class="img">
+      <pre>
+      ////////////////////////////////////////////////////////////
+      &lt;template>
+        &lt;div class="bg-teal-lighten-3">
+         &lt;h1>v-for 1438&lt;/h1> 
+         &lt;div>
+          &lt;h2>Números del 1 al 10&lt;/h2>
+        &lt;ul>
+          &lt;li v-for="(num, index) in 10" :key="index">{{ num }}&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+      
+      &lt;div class="uno">
+        &lt;h2>Palabra&lt;/h2>
+        &lt;ul>
+          &lt;li v-for="(letra, index) in 'hola'" :key="index">{{ letra }}&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+      
+      
+        &lt;div class="dos">
+          &lt;h2>Array&lt;/h2>
+          &lt;ul>
+            &lt;li v-for="(num, index) in numeros" :key="index">{{ num }}&lt;/li>
+          &lt;/ul>
+        &lt;/div>
+        &lt;div class="tres">
+          &lt;h2>Objetos&lt;/h2>
+          &lt;ol>
+            &lt;li v-for="(object, index) in objetos" :key="index">{{ object.nombre }} {{ object.apellido }} su edad es {{ object.age }}&lt;/li>
+          &lt;/ol>
+        &lt;/div>
+      &lt;/div>
+      &lt;/template>
+      &lt;!-- ******************************* --> 
+      &lt;script setup>
+      
+      let numeros = [1,2,3,9,8,7,6,5,4]
+      
+      let objetos = [
+        {
+          nombre:"Carlos",
+          apellido: "Cervera",
+          age : 15
+        },
+        {
+          nombre:"Sofia",
+          apellido: "Cobeñas",
+          age : 16
+        },
+        {
+          nombre:"Ingrid",
+          apellido: "Rebeca",
+          age : 17
+        }
+      ]
+      &lt;/script>
+      &lt;!-- ******************************* -->
+      &lt;style scoped>
+      li{
+        margin-left: 2em;
+      }
+      div{
+        display: flex;
+        margin: 2em;
+      }
+      &lt;/style>
+    </div>
+  </pre>
+</ol>
+  </details></li>
+  <!-- *********************************** -->
+  <li><details class="select">
+    <summary>v-for y cards</summary>
+    <ol>		
+      <li>	hacer un card y tener un objeto de preguntas 	</li>
+      <li>	que cada pregunta con su respuesta aparezcan	</li>
+      <li>	 5 preguntas con 3-4 respuestas 	</li>
+      <li>	 Que desaparezcan después de 3 segundos	las respuestas</li>
+      </ol>		
+      <img src="../media/vue/OpcionVfor.png" alt="opcionVfor" class="img">
+        <pre>
+          <div>
+            &lt;template>
+        &lt;h1>Practica  &lt;/h1>
+      
+        &lt;div class="div" v-for="(preg, index) in preguntasComputacion" :key="index">
+         &lt;h5> {{ preg.pregunta }}&lt;/h5>
+         &lt;ol>
+          &lt;li v-for="(rpta, index) in preg.opciones" :key="index">{{ rpta }}&lt;/li> &lt;br>&lt;br>
+         &lt;h2 v-show="ver">La respuesta es  {{ preg.respuesta }} &lt;/h2>
+          &lt;v-btn class="bg-teal" @click="res">RESPUESTA&lt;/v-btn>
+         &lt;/ol>
+        &lt;/div>
+      
+      &lt;/template>
+      &lt;!-- ************************************* -->
+      &lt;script setup>
+      import { ref } from 'vue';
+      
+      
+      let ver = ref(false)
+      let res = ()=>{
+        ver.value = !ver.value
+        setTimeout(() => {
+          ver.value = !ver.value
+        }, 2000);
+      }
+      
+      
+      const preguntasComputacion = [
+              {
+                  pregunta: "¿Cuál de los siguientes es un lenguaje de programación orientado a objetos?",
+                  opciones: [
+                      "A) COBOL",
+                      "B) C++",
+                      "C) Assembly",
+                      "D) Fortran"
+                  ],
+                  respuesta: "B) C++"
+              },
+              {
+                  pregunta: "¿Qué es una base de datos relacional?",
+                  opciones: [
+                      "A) Un sistema para gestionar archivos de texto",
+                      "B) Un sistema que utiliza tablas para almacenar datos y establecer relaciones entre ellos",
+                      "C) Un programa para crear gráficos y diagramas",
+                      "D) Un lenguaje de programación utilizado para desarrollar aplicaciones web"
+                  ],
+                  respuesta: "B) Un sistema que utiliza tablas para almacenar datos y establecer relaciones entre ellos"
+              },
+              {
+                  pregunta: "¿Qué representa 'HTTP' en el contexto de la web?",
+                  opciones: [
+                      "A) HyperText Transfer Protocol",
+                      "B) HyperText Transmission Program",
+                      "C) HyperText Transfer Program",
+                      "D) HyperText Transmission Protocol"
+                  ],
+                  respuesta: "A) HyperText Transfer Protocol"
+              },
+              {
+                  pregunta: "¿Cuál de los siguientes NO es un sistema operativo?",
+                  opciones: [
+                      "A) Windows",
+                      "B) Linux",
+                      "C) Python",
+                      "D) macOS"
+                  ],
+                  respuesta: "C) Python"
+              },
+              {
+                  pregunta: "¿Qué significa la sigla 'SQL' en el contexto de bases de datos?",
+                  opciones: [
+                      "A) Structured Query Language",
+                      "B) Simple Query Language",
+                      "C) Sequential Query Language",
+                      "D) Structured Question Language"
+                  ],
+                  respuesta: "A) Structured Query Language"
+              }]
+      &lt;/script>
+      &lt;!-- ************************************* -->
+      &lt;style scoped>
+      
+      .div{
+        background-color: blanchedalmond;
+        padding: 4em;
+        border: brown 1px solid;
+        width: 95%;
+        margin: 3em;
+      }
+      &lt;/style>
+          </div>
+        </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>Ejercicios</summary>
+    <ol>
+      <li class="li">
+        <h3>Mostrar una lista de nombres </h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const names = ref(['Carlos', 'María', 'José', 'Ana']);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="(name, index) in names" :key="index">{{ name }}&lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3> Mostrar una lista de objetos con v-for</h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const users = ref([
+            { id: 1, name: 'Carlos', age: 30 },
+            { id: 2, name: 'Ana', age: 25 },
+            { id: 3, name: 'Pedro', age: 40 }
+          ]);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="user in users" :key="user.id">
+                {{ user.name }} - {{ user.age }} años
+              &lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>Generar una lista de números del 1 al 5 </h3>
+        <pre>
+          &lt;script setup>
+          const numbers = [1, 2, 3, 4, 5];
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="num in numbers" :key="num">{{ num }}&lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>Mostrar una tabla de productos </h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const products = ref([
+            { id: 1, name: 'Laptop', price: 800 },
+            { id: 2, name: 'Mouse', price: 25 },
+            { id: 3, name: 'Teclado', price: 45 }
+          ]);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;table border="1">
+              &lt;thead>
+                &lt;tr>
+                  &lt;th>Producto&lt;/th>
+                  &lt;th>Precio&lt;/th>
+                &lt;/tr>
+              &lt;/thead>
+              &lt;tbody>
+                &lt;tr v-for="product in products" :key="product.id">
+                  &lt;td>{{ product.name }}&lt;/td>
+                  &lt;td>${{ product.price }}&lt;/td>
+                &lt;/tr>
+              &lt;/tbody>
+            &lt;/table>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>Iterar sobre un objeto y mostrar sus claves y valores </h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const person = ref({
+            name: 'Carlos',
+            age: 30,
+            city: 'Lima'
+          });
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="(value, key) in person" :key="key">
+                {{ key }}: {{ value }}
+              &lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3> Lista de tareas con botón para eliminar</h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const tasks = ref([
+            { id: 1, text: 'Hacer ejercicio' },
+            { id: 2, text: 'Leer un libro' },
+            { id: 3, text: 'Practicar Vue' }
+          ]);
+          
+          const removeTask = (id) => {
+            tasks.value = tasks.value.filter(task => task.id !== id);
+          };
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="task in tasks" :key="task.id">
+                {{ task.text }}
+                &lt;button @click="removeTask(task.id)">Eliminar&lt;/button>
+              &lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>Generar opciones para un Select </h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const cities = ref(['Lima', 'Buenos Aires', 'Madrid', 'México']);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;select>
+              &lt;option v-for="(city, index) in cities" :key="index">{{ city }}&lt;/option>
+            &lt;/select>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>Contador dinámico con v-for </h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const count = ref(5);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input v-model="count" type="number" min="1" />
+            &lt;ul>
+              &lt;li v-for="n in count" :key="n">Elemento {{ n }}&lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3> Lista con índice y posición</h3>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const fruits = ref(['Manzana', 'Banana', 'Uva', 'Pera']);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;ul>
+              &lt;li v-for="(fruit, index) in fruits" :key="index">
+                {{ index + 1 }}. {{ fruit }}
+              &lt;/li>
+            &lt;/ul>
+          &lt;/template>
+        </pre>
+      </li>
+      <!-- ********************** -->
+       <h3>GRUPO2</h3>
+      <li class="li">
+        <h3>Mostrar una lista de elementos: </h3>
+        <pre>
+          &lt;template>
+          &lt;ul>
+            &lt;li v-for="item in items" :key="item.id">{{ item.name }}&lt;/li>
+          &lt;/ul>
+        &lt;/template>
+     
+        &lt;script setup>
+        import { ref } from 'vue';
+     
+        const items = ref([
+          { id: 1, name: 'Item 1' },
+          { id: 2, name: 'Item 2' },
+          { id: 3, name: 'Item 3' },
+          { id: 4, name: 'Item 4' },
+          { id: 5, name: 'Item 5' },
+        ]);
+        &lt;/script>
+     
+        </pre>
+      </li>
+      <!-- ********************** -->
+      <li class="li">
+        <h3>  Mostrar una lista con índice:</h3>
+        <pre>
+   &lt;template>
+     &lt;ul>
+       &lt;li v-for="(item, index) in items" :key="index">{{ index + 1 }}. {{ item.name }}&lt;/li>
+     &lt;/ul>
+   &lt;/template>
+
+   &lt;script setup>
+   import { ref } from 'vue';
+
+   const items = ref([
+     { name: 'Item 1' },
+     { name: 'Item 2' },
+     { name: 'Item 3' },
+     { name: 'Item 4' },
+     { name: 'Item 5' },
+   ]);
+   &lt;/script>
+        </pre>
+      </li>
+      <!-- ********************** -->
+
+    <li class="li">
+      <h3> Mostrar una lista con clave y valor: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="(value, key) in obj" :key="key">{{ key }}: {{ value }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref } from 'vue';
+   
+      const obj = ref({
+        name: 'John Doe',
+        age: 30,
+        email: 'john.doe@example.com',
+      });
+      &lt;/script>
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3>  Mostrar una lista con clave, valor e índice: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="(value, key, index) in obj" :key="index">{{ index + 1 }}. {{ key }}: {{ value }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref } from 'vue';
+   
+      const obj = ref({
+        name: 'John Doe',
+        age: 30,
+        email: 'john.doe@example.com',
+      });
+      &lt;/script>
+   
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3> Mostrar una lista de objetos anidados: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="user in users" :key="user.id">
+            &lt;h3>{{ user.name }}&lt;/h3>
+            &lt;ul>
+              &lt;li v-for="todo in user.todos" :key="todo.id">{{ todo.title }}&lt;/li>
+            &lt;/ul>
+          &lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref } from 'vue';
+   
+      const users = ref([
+        {
+          id: 1,
+          name: 'John Doe',
+          todos: [
+            { id: 1, title: 'Tarea 1' },
+            { id: 2, title: 'Tarea 2' },
+            { id: 3, title: 'Tarea 3' },
+          ],
+        },
+        {
+          id: 2,
+          name: 'Jane Doe',
+          todos: [
+            { id: 1, title: 'Tarea A' },
+            { id: 2, title: 'Tarea B' },
+            { id: 3, title: 'Tarea C' },
+          ],
+        },
+      ]);
+      &lt;/script>
+   
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3>  Mostrar una lista con un rango de números: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="n in 5" :key="n">{{ n }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      // No se necesita código en la sección de script
+      &lt;/script>
+   
+   
+    Mostrar una lista con un rango de números personalizado:
+   html
+      &lt;template>
+        &lt;ul>
+          &lt;li v-for="n in range(1, 10)" :key="n">{{ n }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref, computed } from 'vue';
+   
+      const start = ref(1);
+      const end = ref(10);
+   
+      const range = computed(() => (count) => Array.from(Array(count), (_, i) => i + start.value));
+      &lt;/script>
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3>  Mostrar una lista con un rango de números descendente: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="n in range(10, 1)" :key="n">{{ n }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref, computed } from 'vue';
+   
+      const start = ref(10);
+      const end = ref(1);
+   
+      const range = computed(() => (count) => Array.from(Array(count), (_, i) => start.value - i));
+      &lt;/script>
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3>   Mostrar una lista con un rango de números personalizado y un paso personalizado:</h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="n in range(1, 10, 2)" :key="n">{{ n }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+   
+      &lt;script setup>
+      import { ref, computed } from 'vue';
+   
+      const start = ref(1);
+      const end = ref(10);
+      const step = ref(2);
+   
+      const range = computed(() => (start, end, step) => Array.from(Array(Math.ceil((end - start + 1) / step)), (_, i) => start + i  step));
+      &lt;/script>
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3> Mostrar una lista con un rango de números personalizado y un paso personalizado, en orden descendente: </h3>
+      <pre>
+        &lt;template>
+        &lt;ul>
+          &lt;li v-for="n in range(10, 1, 2)" :key="n">{{ n }}&lt;/li>
+        &lt;/ul>
+      &lt;/template>
+  
+      &lt;script setup>
+      import { ref, computed } from 'vue';
+  
+      const start = ref(10);
+      const end = ref(1);
+      const step = ref(2);
+  
+      const range = computed(() => (start, end, step) => Array.from(Array(Math.ceil((start - end + 1) / step)), (_, i) => start - i  step));
+      &lt;/script>
+   
+      </pre>
+    </li>
+      <!-- ********************** -->
+    <li class="li">
+      <h3>  </h3>
+      <pre>
+
+      </pre>
+    </li>
+      <!-- ********************** -->
+   
+
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"> </h2>
+<ol>
+  <li><details class="select">
+    <summary>v:bind </summary>
+    <ol>		
+      <h3>Tarea</h3>
+      <li>Hacer un h3 con el texto: Esta es una etiqueta que cambia de color</li>
+      <li>color por defecto azul</li>
+      <li>hacer un botón que al pulsar cambie el color del texto</li>
+      <li>cambia a rojo</li>
+      <li>después de 2 segundos regrese a su color</li>
+      <h3>Información</h3>
+      <li>v-bind: SIGNIFICA UNIR, CONECTAR, ASOCIAR</li>
+      <li>	Permite modificar el atributo que se pone después del bind	</li>
+      <li>	Es unidireccional	</li>
+      <li>	Se usa para clases y estilos	</li>
+      <li>	Se pueden aplicar a una etiqueta varias clases en un solo bind	</li>
+      <li>	Trabaja con variables, por eso se traen del SCRIPT	</li>
+      <li> v-bind relaciona datos del STYLE on el template, es unidireccional, se encierra entre llaves </li>
+    </ol>
+    <img src="../media/vue/bind1.png" alt="bind1" class="img">
+    <img src="../media/vue/bind2.png" alt="bind2" class="img">
+    <pre>
+      <div class="">
+        &lt;template>
+    &lt;div>
+      &lt;h1>Bind&lt;/h1>
+      &lt;h1 :class="color">esta es una etiqueta que cambiará de color&lt;/h1>
+      &lt;button class="btn btn-primary" @click="cambio">CAMBIA&lt;/button>
+    &lt;/div>
+  &lt;/template>
+  &lt;!-- ************************************* -->
+  &lt;script setup>
+  import { ref } from 'vue';
+  
+  let color = ref('uno');
+  
+  let cambio = () => {
+    color.value = 'dos';
+    setTimeout(() => {
+      color.value = 'uno';
+    }, 3000);
+  }
+  
+  &lt;/script>
+  &lt;!-- ************************************* -->
+  &lt;style scoped>
+  .uno {
+    background-color: antiquewhite;
+    color: brown;
+  }
+  .dos {
+    background-color: brown;
+    color: aliceblue;
+  }
+  &lt;/style>
+  
+      </div>
+    </pre>
+  
+  </details></li>
+  <!-- ******************************* -->
+
+  <li><details class="select">
+    <summary>Ejercicios 01</summary>
+    <ol>
+      <li class="li">
+        <h4>Enlazar el atributo href en un enlace </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const url = ref('https://vuejs.org');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;a v-bind:href="url" target="_blank">Ir a Vue.js&lt;/a>
+          &lt;/template>
+          
+        </pre>
+      </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Enlazar src en una imagen </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const imageUrl = ref('https://via.placeholder.com/150');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;img v-bind:src="imageUrl" alt="Imagen de ejemplo">
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4> Enlazar el disabled en un botón</h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const isDisabled = ref(true);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;button v-bind:disabled="isDisabled">Botón Deshabilitado&lt;/button>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4> Enlazar class dinámicamente</h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const isActive = ref(true);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;p v-bind:class="{ activo: isActive, inactivo: !isActive }">
+              Este texto cambia de clase dinámicamente
+            &lt;/p>
+          &lt;/template>
+          
+          &lt;style>
+          .activo { color: green; font-weight: bold; }
+          .inactivo { color: red; text-decoration: line-through; }
+          &lt;/style>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Enlazar style dinámico </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const colorTexto = ref('blue');
+          const tamañoFuente = ref('20px');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;p v-bind:style="{ color: colorTexto, fontSize: tamañoFuente }">
+              Texto con estilos dinámicos
+            &lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Enlazar atributos alt y title en una imagen </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const imgSrc = ref('https://via.placeholder.com/100');
+          const imgAlt = ref('Imagen de prueba');
+          const imgTitle = ref('Este es un tooltip');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;img v-bind:src="imgSrc" v-bind:alt="imgAlt" v-bind:title="imgTitle">
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Cambiar el placeholder de un input dinámicamente </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const placeholderText = ref('Escribe tu nombre aquí...');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input type="text" v-bind:placeholder="placeholderText">
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Cambiar dinámicamente el type de un input </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const inputType = ref('password');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input v-bind:type="inputType">
+            &lt;button @click="inputType = inputType === 'password' ? 'text' : 'password'">
+              Mostrar/Ocultar
+            &lt;/button>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Enlazar colspan en una tabla </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const columnas = ref(2);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;table border="1">
+              &lt;tr>
+                &lt;td v-bind:colspan="columnas">Celda combinada&lt;/td>
+              &lt;/tr>
+            &lt;/table>
+          &lt;/template>
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4>Usar v-bind en varios atributos a la vez con un objeto </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const atributos = ref({
+            href: 'https://vuejs.org',
+            target: '_blank',
+            title: 'Ir al sitio de Vue.js'
+          });
+          &lt;/script>
+          
+          &lt;template>
+            &lt;a v-bind="atributos">Ir a Vue.js&lt;/a>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+       <li class="li">
+        <h4> </h4>
+        <pre>
+
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary>v-model</summary>
+  <p>•	v-model permite enlazar datos de forma bidireccional. <br>
+    •	Se puede usar con inputs, checkboxes, radio buttons, select, textarea y otros elementos. <br>
+    •	También puede manejar listas de valores y objetos completos. 
+    </p>
+    <ol>
+      <li>crear un input </li>
+      <li>y hacer que lo que se escribe en la caja se muestre por pantalla</li>
+      <li></li>
+     
+       <h2> BINDEO BIDIRECCIONAL v-model</h2>
+    Es reactivo se usa con ref <br>
+    El v model relaciona un elemento del template con otro del script
+      </li>
+    </ol>
+    <img src="../media/vue/model.png" alt="model" class="img">
+      <pre>
+        <div>
+          &lt;template>
+          &lt;div>
+              &lt;h1>VUE3&lt;/h1>
+              &lt;v-row>
+                &lt;v-col cols="4">
+                &lt;v-form>
+                    &lt;v-text-field
+                    placeholder="Escribe aquí"
+                    density="compact"
+                    v-model="input"
+                    >&lt;/v-text-field>
+                  &lt;/v-form>
+                &lt;/v-col>
+              &lt;/v-row>
+              &lt;h3>{{ input }}&lt;/h3>
+          &lt;/div>
+        &lt;/template>
+        &lt;!-- ************************************* -->
+        &lt;script setup>
+        import { ref } from 'vue';
+        
+        let input = ref('')
+        &lt;/script>
+        &lt;!-- ************************************* -->
+        &lt;style scoped>
+        
+        &lt;/style>
+        </div>
+      </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>Ejercicios 01</summary>
+    <ol>
+      <li class="li">
+        <h4>Input de texto bidireccional </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const nombre = ref('');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input v-model="nombre" placeholder="Escribe tu nombre">
+            &lt;p>Tu nombre es: {{ nombre }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Input tipo checkbox </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const aceptoTerminos = ref(false);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;label>
+              &lt;input type="checkbox" v-model="aceptoTerminos">
+              Acepto los términos y condiciones
+            &lt;/label>
+            &lt;p v-if="aceptoTerminos">¡Gracias por aceptar!&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Radio buttons </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const genero = ref('');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;label>
+              &lt;input type="radio" v-model="genero" value="Masculino"> Masculino
+            &lt;/label>
+            &lt;label>
+              &lt;input type="radio" v-model="genero" value="Femenino"> Femenino
+            &lt;/label>
+            &lt;p>Género seleccionado: {{ genero }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Select con opciones </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const pais = ref('');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;select v-model="pais">
+              &lt;option value="">Selecciona un país&lt;/option>
+              &lt;option value="Perú">Perú&lt;/option>
+              &lt;option value="México">México&lt;/option>
+              &lt;option value="España">España&lt;/option>
+            &lt;/select>
+            &lt;p>País seleccionado: {{ pais }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Input tipo número </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const edad = ref(18);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input type="number" v-model="edad" min="0">
+            &lt;p>Tu edad es: {{ edad }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Textarea para comentarios </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const comentario = ref('');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;textarea v-model="comentario" placeholder="Escribe un comentario">&lt;/textarea>
+            &lt;p>Comentario: {{ comentario }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Input de rango (slider) </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const volumen = ref(50);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input type="range" v-model="volumen" min="0" max="100">
+            &lt;p>Volumen: {{ volumen }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Lista de elementos con v-model </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const frutasSeleccionadas = ref([]);
+          &lt;/script>
+          
+          &lt;template>
+            &lt;label>
+              &lt;input type="checkbox" v-model="frutasSeleccionadas" value="Manzana"> Manzana
+            &lt;/label>
+            &lt;label>
+              &lt;input type="checkbox" v-model="frutasSeleccionadas" value="Banana"> Banana
+            &lt;/label>
+            &lt;label>
+              &lt;input type="checkbox" v-model="frutasSeleccionadas" value="Uva"> Uva
+            &lt;/label>
+            &lt;p>Frutas seleccionadas: {{ frutasSeleccionadas.join(', ') }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>v-model con un objeto </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const usuario = ref({
+            nombre: '',
+            correo: '',
+          });
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input v-model="usuario.nombre" placeholder="Nombre">
+            &lt;input v-model="usuario.correo" placeholder="Correo">
+            &lt;p>Usuario: {{ usuario.nombre }} - {{ usuario.correo }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4>Dos inputs sincronizados con v-model </h4>
+        <pre>
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          const mensaje = ref('');
+          &lt;/script>
+          
+          &lt;template>
+            &lt;input v-model="mensaje" placeholder="Escribe algo">
+            &lt;input v-model="mensaje" placeholder="Otro input sincronizado">
+            &lt;p>Mensaje: {{ mensaje }}&lt;/p>
+          &lt;/template>
+          
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+      <li class="li">
+        <h4> </h4>
+        <pre>
+
+        </pre>
+       </li>
+     <!-- ++++++++++++++++-->
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary>checkbox</summary>
+    <ol>
+    <li>Realizado con vuetify</li>
+    <li>En html seria diferente la sintaxis</li>
+    <li>Que muestre si acepta usando v-show y color azul</li>
+    <li>por defecto acepta, si cambia muestre no acepta y cambia de color</li>
+   
+    </ol>
+    <img src="../media/vue/select&Ckeckbox.png" alt="select&Ckeckbox" class="img">
+    <h2>CON VUETIFY</h2>
+      <pre>
+        <div>
+          &lt;template>
+          &lt;div class="work">
+           &lt;h1>Practica Julio 2024&lt;/h1> 
+           &lt;v-checkbox v-show="acepto ===true"  v-model="acepto" class="azul">acepto  &lt;/v-checkbox>
+           &lt;v-checkbox v-show="acepto ===false"  v-model="acepto" class="rojo">no acepto  &lt;/v-checkbox>
+          &lt;/div>
+          
+        &lt;/template>
+        &lt;!-- ******************************* --> 
+        &lt;script setup>
+        import { ref } from 'vue';
+        
+        let acepto = ref(true)
+        
+        &lt;/script>
+        &lt;!-- ******************************* -->
+        &lt;style scoped>
+        .work{
+          background-color: burlywood;
+          height: 5em;
+          margin-left: 3em;
+        }
+        .rojo{
+          color: red;
+        }
+        .azul {
+          color: blue;
+        }
+        &lt;/style>
+        &lt;!-- ******************************* -->
+        <H2>CON CSS </H2>
+        &lt;template>
+        &lt;div>
+      &lt;input type="checkbox" name="" id="" v-model="cambio">
+      &lt;h4 v-show="cambio ===true" class="uno">ACEPTA&lt;/h4>
+      &lt;h4 v-show="cambio ===false" class="dos"> NO ACEPTA&lt;/h4>
+        &lt;/div>
+      &lt;/template>
+      &lt;!-- ************************************* -->
+      &lt;script setup>
+      import { ref } from 'vue';
+      
+      
+      let cambio = ref(false)
+      &lt;/script>
+      &lt;!-- ************************************* -->
+      &lt;style scoped>
+      .uno {
+        background-color: antiquewhite;
+        color: brown;
+      }
+      .dos {
+        background-color: brown;
+        color: aliceblue;
+      }
+      &lt;/style>
+
+        </div>
+      </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"></h2>
+<ol>
+
+   <li><details class="select">
+   
+      <summary>Select</summary>
+    
+      <ol>
+      <li>Realizado con vuetify</li>
+      <li>Usar v-select</li>
+      <li>los elementos van en un array en el script</li>
+      <li>:items="items" <br>para traer el array u objeto</li>
+      <h5>Luego mostrar por pantalla</h5>
+      <li>v-model = "item1" <br> En el scriptt es ref y va vacío para que capture el elemento seleccionado y lo muestre</li>
+      </ol>
+      <img src="./image/select&Ckeckbox.png" alt="select&Ckeckbox" class="img">
+        <pre>
+          <div>
+            &lt;template>
+            &lt;div class="work">
+              &lt;h1>Practica Julio 2024&lt;/h1> 
+              &lt;v-select
+              :items="select"
+              label="País"
+              width="15em"
+              class="azul"
+              />
+          
+              
+            &lt;/div>
+            
+          &lt;/template>
+          &lt;!-- ******************************* --> 
+          &lt;script setup>
+          import { ref } from 'vue';
+      
+          let select = ref(['Peru', 'Brasil', 'Japón', 'India'])
+      
+          &lt;/script>
+          &lt;!-- ******************************* -->
+          &lt;style scoped>
+          .work{
+            background-color: burlywood;
+            height: 5em;
+            margin-left: 3em;
+          }
+          .rojo{
+            color: red;
+          }
+          .azul {
+            color: blue;
+            border: 1px solid green;
+          }
+          &lt;/style>
+      
+          </div>
+        </pre>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"></h2>
+<ol>
+
+   <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+
+</section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="">
+  <h2 class="h1"></h2>
+<ol>
+
+   <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+
+</section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ 
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+
+
+
+
+
+
+</body>
+</html>
