@@ -14,23 +14,41 @@
   </header>
   <!-- ///////////////////////////////////////////////////////// -->
 <h1 class="h1">VUE3</h1>
-<div class="main">
+<section class="main">
   <ol>
     <li class="lih"><a href="#1">Instalación y creación de un Proyecto</a> </li>
     <li class="lih"><a href="#2">Los Componentes, Interpolación y Snippets</a></li>
     <li class="lih"><a href="#3">Condicionales IF-SHOW</a></li>
     <li class="lih"><a href="#4">v-for</a></li>
-    <li class="lih"><a href="#">v-bind </a></li>
-    <li class="lih"><a href="#">v-model</a></li>
-    <li class="lih"><a href="#">Checkbox</a></li>
-    <li class="lih"><a href="#">Select</a></li>
-    <li class="lih"><a href="#9"></a></li>
-    <li class="lih"><a href="#10"></a></li>
-    <li class="lih"><a href="#11"></a></li>
+    <li class="lih"><a href="#5">v-bind </a></li>
+    <li class="lih"><a href="#6">v-model</a></li>
+    <li class="lih"><a href="#7">Checkbox</a></li>
+    <li class="lih"><a href="#8">Select</a></li>
+    <li class="lih"><a href="#9">v-on</a></li>
+    <li class="lih"><a href="#10">Condicional Ternario</a></li>
+    <li class="lih"><a href="#11">Contador</a></li>
+    <li class="lih"><a href="#12">Reactividad</a></li>
+    <li class="lih"><a href="#13">Practica 1</a></li>
+    <li class="lih"><a href="#14"></a></li>
+    <li class="lih"><a href="#15"></a></li>
+    <li class="lih"><a href="#16"></a></li>
+    <li class="lih"><a href="#17"></a></li>
+    <li class="lih"><a href="#18"></a></li>
+    <li class="lih"><a href="#19"></a></li>
+    <li class="lih"><a href="#20"></a></li>
+    <li class="lih"><a href="#21"></a></li>
+    <li class="lih"><a href="#22"></a></li>
+    <li class="lih"><a href="#23"></a></li>
+    <li class="lih"><a href="#24"></a></li>
+    <li class="lih"><a href="#25"></a></li>
+    <li class="lih"><a href="#26"></a></li>
+    <li class="lih"><a href="#27"></a></li>
+    <li class="lih"><a href="#28"></a></li>
+    <li class="lih"><a href="#29"></a></li>
+    <li class="lih"><a href="#30"></a></li>
   </ol>
-</div> <br><br><hr><hr>
-
-  <!-- ///////////////////////////////////////////////////////// -->
+</section> <br><br><hr><hr>
+ <!-- ////////////////////////////////////////////////// -->
 <section id="1">
   <h2 class="h1">Primera Instalación </h2>
     <ol>
@@ -57,9 +75,7 @@
     <li class="li">Instalación manual: babel, typescript, linter // enter</li>
     <li class="li">Ir al proyecto y npm run serve </li>
     <h3>Inicio </h3>
-<pre>
 
-</pre>
     <li class="li">Abrir el App.vue y borrar todo, haciendo la estructura básica de un componente</li>
     <li class="li">Usar el html, y el css (template y style)</li>
     <li class="li">Poner un h1, y color a la pagina el app.vue sin scoped en el style </li>
@@ -369,29 +385,9 @@ align-items: center;    /* Alineación vertical */
   </li>
   <!-- ////////////////////////////////////////////////// -->
 
-  <li>
-    <h3>Mostrar un mensaje si la lista está vacía </h3>
-<pre>
-  &lt;template>
-  &lt;p v-if="items.length === 0">No hay elementos en la lista.&lt;/p>
-  &lt;ul v-else>
-    &lt;li v-for="(item, index) in items" :key="index">{{ item }}&lt;/li>
-  &lt;/ul>
-&lt;/template>
-
-
-&lt;script setup>
-import { ref } from 'vue';
-
-const items = ref([]);
-&lt;/script>
-</pre>
-    
-  </li>
-  <!-- ////////////////////////////////////////////////// -->
 
   <li>
-    <h3>Mostrar un mensaje de error si un campo está vacío </h3>
+    <h3>Crear un input donde se ponga el nombre y que mientras este vacío se muestre un mensaje de error si un campo está vacío</h3>
 <pre>
   &lt;template>
   &lt;input v-model="name" type="text" placeholder="Escribe tu nombre" />
@@ -407,30 +403,74 @@ const name = ref('');
     
   </li>
   <li>
-    <h3>Mostrar/ocultar detalles de un producto </h3>
+    <h3>Usando un botón Mostrar/ocultar detalles de un producto </h3>
 <pre>
   &lt;template>
-  &lt;button @click="showDetails = !showDetails">
-    {{ showDetails ? 'Ocultar detalles' : 'Ver detalles' }}
-  &lt;/button>
-  
-  &lt;div v-if="showDetails">
-    &lt;p>Precio: $20.00&lt;/p>
-    &lt;p>Stock: Disponible&lt;/p>
-    &lt;p>Descripción: Producto de alta calidad.&lt;/p>
-  &lt;/div>
+  &lt;div>
+    &lt;h2>If- Mostrar&lt;/h2>
+    
+
+    &lt;v-simple-table v-show="mostrar">
+      &lt;thead>
+        &lt;tr>
+          &lt;th class="px-4">Nombre &lt;/th>
+          &lt;th class="px-4"> Precio&lt;/th>
+          &lt;th class="px-4"> Cantidad&lt;/th>
+        &lt;/tr>
+      &lt;/thead>
+      &lt;tbody>
+        &lt;tr v-for="(producto, index) in productos" :key="index">
+          &lt;td class="px-4">{{ producto.nombre }}&lt;/td>
+          &lt;td class="px-4">{{ producto.precio }}&lt;/td>
+          &lt;td class="px-4">{{ producto.stock }}&lt;/td>
+        &lt;/tr>
+      &lt;/tbody>
+    &lt;/v-simple-table>
+&lt;/div> &lt;br>
+&lt;v-btn @click="mostrar = !mostrar" class="bg-teal">Mostrar/Ocultar&lt;/v-btn>
 &lt;/template>
 
+&lt;!-- ************************************* -->
 &lt;script setup>
 import { ref } from 'vue';
 
-const showDetails = ref(false);
+
+let mostrar= ref(true)
+
+
+let productos = [
+  {
+    nombre:'arroz' ,
+    precio: 4.20,
+    stock: 100
+  },
+  {
+    nombre: 'aceite',
+    precio: 9.80,
+    stock: 150
+  },
+  {
+    nombre: 'fideos',
+    precio: 3.20,
+    stock: 220
+  },
+  {
+    nombre: 'frijol',
+    precio: 7.40 ,
+    stock: 140
+  },
+]
 &lt;/script>
+&lt;!-- ************************************* -->
+&lt;style scoped>
+
+&lt;/style>
 </pre>
     
   </li>
 </ol>
-
+<img src="../media/ifMostrar.png" alt="ifMostrar" class="img">
+<img src="../media/ifOcultar.png" alt="ifMostrar" class="img">
   </details></li>
   <!-- ******************************* -->
   <li><details class="select">
@@ -443,7 +483,7 @@ const showDetails = ref(false);
 </ol>
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
+<section id="4">
   <h2 class="h1">V-FOR</h2>
   <ol>
   <li><details class="select">
@@ -1101,13 +1141,13 @@ const showDetails = ref(false);
 </ol>
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
-  <h2 class="h1"> </h2>
+<section id="5">
+  <h2 class="h1">v:bind  </h2>
 <ol>
   <li><details class="select">
-    <summary>v:bind </summary>
+    <summary>Ejemplo</summary>
     <ol>		
-      <h3>Tarea</h3>
+    
       <li>Hacer un h3 con el texto: Esta es una etiqueta que cambia de color</li>
       <li>color por defecto azul</li>
       <li>hacer un botón que al pulsar cambie el color del texto</li>
@@ -1371,7 +1411,7 @@ const showDetails = ref(false);
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
+<section id="6">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1643,7 +1683,7 @@ const showDetails = ref(false);
 
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
+<section id="7">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1730,7 +1770,7 @@ const showDetails = ref(false);
 
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
+<section id="8">
   <h2 class="h1"></h2>
 <ol>
 
@@ -1746,7 +1786,7 @@ const showDetails = ref(false);
       <h5>Luego mostrar por pantalla</h5>
       <li>v-model = "item1" <br> En el scriptt es ref y va vacío para que capture el elemento seleccionado y lo muestre</li>
       </ol>
-      <img src="./image/select&Ckeckbox.png" alt="select&Ckeckbox" class="img">
+      <img src="../media/vue/select&Ckeckbox.png" alt="select&Ckeckbox" class="img">
         <pre>
           <div>
             &lt;template>
@@ -1800,9 +1840,57 @@ const showDetails = ref(false);
 
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
-  <h2 class="h1"></h2>
+<section id="9">
+  <h2 class="h1">Condicional Ternario</h2>
 <ol>
+
+   <li><details class="select">
+    <summary>Definición y ejemplo</summary>
+    <h2>Condicional ternario </h2>
+    <div>
+    <ol>
+      <li>	Variable que muestre los ahorros	 </li>
+<li>	 azul > 500 o sino rojo	 </li>
+<li> :class="ahorro >= 500 ? 'azul' : 'rojo'" </li>
+
+    </ol>
+    </div>
+    <img src="../media/vue/CondicionalTernario.PNG" alt=" CondicionalTernario" class="img">
+
+    <div class="">
+      <pre>
+&lt;template>
+  &lt;h1>HOME&lt;/h1>
+  &lt;div :class="ahorro >= 500 ? 'azul' : 'rojo'">
+    &lt;h3>Los ahorros de Carlos son: {{ ahorro }}&lt;/h3>
+  &lt;/div>
+&lt;/template>
+&lt;!-- ******************************* -->
+&lt;script setup>
+let ahorro = 400
+&lt;/script>
+&lt;!-- ******************************* -->
+&lt;style scoped>
+.rojo{
+  color: red;
+}
+.azul{
+  color: blue;
+}
+&lt;/style>
+
+      </pre>
+    </div>
+  </details></li>
+  <!-- ******************************* -->
+
+   <li><details class="select">
+    <summary>Ejercicios01</summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
 
    <li><details class="select">
     <summary></summary>
@@ -1814,28 +1902,89 @@ const showDetails = ref(false);
 
 </section>
 <!-- ////////////////////////////////////////////////// -->
-<section id="">
-  <h2 class="h1"></h2>
+<section id="10">
+  <h2 class="h1">Contador</h2>
 <ol>
 
    <li><details class="select">
     <summary></summary>
-    <ol>
-      <li class="li"></li>
-    </ol>
+    <h1>Contador </h1>
+    <img src="/src/asset../media/vue/contador.png" alt="">
+    <pre>
+      <div>
+        &lt;template>
+        &lt;h1>HOME&lt;/h1>
+        &lt;div class="ma-8 bg-teal text-black ">
+          &lt;v-btn @click="contador++" >AGREGAR&lt;/v-btn>
+          &lt;h2 class="mx-10 my-6">{{ contador }}&lt;/h2>
+          &lt;v-btn @click="contador--" >DISMINUIR&lt;/v-btn>
+        &lt;/div>
+        
+        &lt;/template>
+        &lt;!-- ******************************* --> 
+        &lt;script setup>
+      import { ref } from 'vue';
+      
+           let contador = ref(1)
+        &lt;/script>
+        &lt;!-- ******************************* --> 
+        &lt;style scoped>
+      
+      &lt;/style>
+      </div>
+    </pre>
   </details></li>
   <!-- ******************************* -->
 
 </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="">
-  <h2 class="h1"></h2>
+ <section id="11">
+  <h2 class="h1">Reactividad</h2>
 <ol>
   <li><details class="select">
     <summary></summary>
-    <ol>
-      <li class="li"></li>
-    </ol>
+  
+    <ol>		
+    <li> botón que incremente de 100 en 100	</li>
+    <li>	Que cambie de color pasando 1000	</li>
+    <li>inicie en 500	</li>
+    </ol>		
+    <img src="../media/vue/reactividad.png" alt="reactividad" class="img">
+    /////////////////////////////////////////////////////////
+      <pre>
+        <div>
+        
+    &lt;template>
+    &lt;div>
+     &lt;h1>REACTIVIDAD&lt;/h1> 
+      &lt;h2 :class="ahorro>1000 ? 'blue' :'green'">Ahorro : {{ ahorro }}&lt;/h2> &lt;br>&lt;br>
+    
+      &lt;v-btn @click="aumento">Ingresar $ 100&lt;/v-btn>
+    &lt;/div>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { ref } from 'vue';
+    
+    let ahorro = ref(500)
+    let aumento = () => {
+    ahorro.value+= 100
+    }
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    .blue{
+    color: blue;
+    }
+    .green{
+    color: green;
+    }
+    div{
+    background-color: blanchedalmond;
+    }
+    &lt;/style>
+        </div>
+      </pre>
   </details></li>
   <!-- ******************************* -->
   <li><details class="select">
@@ -1849,7 +1998,1185 @@ const showDetails = ref(false);
  </section>
 <!-- ////////////////////////////////////////////////// -->
  
- <section id="">
+ <section id="12">
+  <h2 class="h1">PRACTICA UNO</h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+        <h4>Objetivo</h4>
+<ol>
+<li>	mostrar saldo	</li>
+<li>	Botones de depósito y retiro	</li>
+<li>	si esta en o que no pueda retirar //usar un alert	</li>
+<li>	cantidad de movimientos	</li>
+<li>	listado de movimientos 	</li>
+<li>	Dar estilos 	</li>
+</ol>
+<h4>Proceso</h4>
+<ol>
+  <li>Hacer el let referencial y llamarlo en el template</li>
+  <li>Crear un botón con la función mas</li>
+  <li>Hacer la lógica de aumentar </li>
+  <li>Duplicar y cambiar a disminuir</li>
+  <li>Crear el boton menos</li>
+  <li>No puede haber saldo negativo</li>
+  <li>crear una condicional que emita un alert</li>
+  <li>H3 la cantidad de movimientos en let ref</li>
+  <li>Mostrar si ha sido un deposito o retiro de 100</li>
+  <li>Definir un array ref</li>
+  <li>Aumentar la lógica con un push</li>
+  <li>Llamarlo con un v-for</li>
+  <li>Aunmentar la logica para disminuir</li>
+  <li>Darle estilo</li>
+</ol>
+<img src="../media/vue/practicaUno.png" alt="Practica Uno" class="img">
+        <pre>
+          <div>
+            &lt;template>
+            &lt;div>
+             &lt;h1>Practica Uno&lt;/h1>  &lt;br>&lt;br>
+              &lt;h2>Ahorros  $.{{ ahorro }}&lt;/h2> &lt;br>&lt;br>
+              &lt;h2>Cantidad de movimientos {{ movimiento }}&lt;/h2> &lt;br>&lt;br>
+              &lt;v-btn @click="deposito" class="btn">Depósito&lt;/v-btn>
+              &lt;v-btn @click="retiro">Retiro&lt;/v-btn> &lt;br>&lt;br>&lt;br>
+           
+              &lt;h3>MOVIMIENTOS &lt;/h3>
+              &lt;ol>
+                &lt;li v-for="(mov, index) in movimientos" :key="index">{{ mov }}&lt;/li>
+              &lt;/ol>
+            &lt;/div>
+          &lt;/template>
+          &lt;!-- ******************************* --> 
+          &lt;script setup>
+          import { ref } from 'vue';
+          
+          
+          let ahorro = ref(0)
+          let movimiento = ref(0)
+          let movimientos = ref([])
+          
+          let retiro = ()=>{
+            if (ahorro.value > 0) {
+              ahorro.value -= 100
+              movimiento.value++
+              movimientos.value.push('Retiro $100.00')
+              
+            }else{
+              alert('No tiene Fondos')
+            }
+          }
+          let deposito = ()=>{
+            ahorro.value += 100
+            movimiento.value++
+            movimientos.value.push('Deposito $100.00')
+          }
+          &lt;/script>
+          &lt;!-- ******************************* -->
+          &lt;style scoped>
+          div{
+            background-color: blanchedalmond;
+            margin: 4em;
+            padding: 4em;
+          }
+          .btn{
+            margin-right: 2em;
+          }
+          h2{
+            margin-left: 3rem;
+          }
+          &lt;/style>
+          </div>
+        </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="13">
+  <h2 class="h1">RUTAS</h2>
+<ol>
+      <li><details class="select">
+        <summary>USANDO VUETIFY</summary>
+       
+        <pre>
+          &lt;template>
+          &lt;v-app>
+        
+            &lt;!-- Barra de navegación superior *******************************-->
+            &lt;v-app-bar app color="primary" dark>
+              &lt;v-toolbar-title>Mi Aplicación&lt;/v-toolbar-title>
+              &lt;v-spacer>&lt;/v-spacer>
+        
+              &lt;!-- Botones de navegación **********************************-->
+              &lt;v-btn
+                v-for="(route, index) in routes"
+                :key="index"
+                :color="isActive(route.path) ? 'green' : 'white'"
+                text
+                @click="() => navigate(route.path)"
+              >
+                {{ route.name }}
+              &lt;/v-btn>
+            &lt;/v-app-bar>
+        
+            &lt;!-- Contenido principal***************************************** -->
+            &lt;v-main>
+              &lt;v-container fluid class="pa-4">
+                &lt;router-view>&lt;/router-view>
+              &lt;/v-container>
+            &lt;/v-main>
+          &lt;/v-app>
+        &lt;/template>
+        
+        &lt; ///////////////////////////////////////////////////////////////////// -->
+        
+        &lt;script setup>
+        import { useRouter, useRoute } from 'vue-router'
+        
+        const router = useRouter()
+        const route = useRoute()
+        
+        // Definimos las rutas de navegación
+        const routes = [
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' }
+        ]
+        
+        // Función para navegar a la ruta seleccionada
+        const navigate = (path) => {
+          router.push(path)
+        }
+        
+        // Función para verificar si la ruta actual está activa
+        const isActive = (path) => {
+          return route.path === path
+        }
+        &lt;/script>
+        
+        </pre>
+        
+      
+        <h2>FORMA CLÁSICA</h2>
+        <ol>
+        <li>Por estructuración las vistas o paginas ejemplo: NombreView.vue</li>
+        <li>Crear un navegador con el nombre de las rutas</li>
+        <li>Una pagina con rutas internas</li>
+        <li>Usar name en vez de path</li>
+        <li>sub rutas que se llamen desde la pagina nueva imagen 3</li>
+        </ol>
+        <p>1 Para que la ruta activa cambie de color</p>
+        <img src="../media/vue/ruta1.png" alt="ruta1" class="img">
+        <p>2 Rutas internas</p>
+        <img src="../media/vue/ruta2.png" alt="ruta2" class="img">
+        <p>3 Uso del name</p>
+        <img src="../media/vue/ruta3.png" alt="ruta3" class="img">
+        <p>4 Enrutado interno- REVISAR</p>
+        <img src="../media/vue/ruta4.png" alt="ruta4" class="img">
+      </details></li>
+      <!-- ******************************* -->
+      <li><details class="select">
+        <summary>ROUTER</summary>
+        <h1> ROUTER CON VUETIFY </h1> 
+
+        <pre>
+          <div>
+            
+      
+      &lt;template>
+      &lt;div>
+      &lt;v-app>
+        &lt;v-app-bar class="bg-blue">
+          &lt;v-toolbar-title>Mi App&lt;/v-toolbar-title>
+          &lt;v-spacer>&lt;/v-spacer>
+          &lt;v-btn
+          v-for="(route, index) in routes" :key="index"
+          @click="navigate(route.path)"
+          :color="isActive(route.path)? 'purple' : 'white'"
+          text
+          >{{ route.name }}&lt;/v-btn>
+        &lt;/v-app-bar>
+        &lt;v-main >
+          &lt;router-view/>
+        &lt;/v-main>
+      &lt;/v-app>
+      &lt;/div>
+      &lt;/template>
+      &lt;!-- ************************************* -->
+      &lt;script setup>
+      import {useRouter, useRoute  } from "vue-router";
+      
+      let router = useRouter()
+      let route = useRoute()
+      
+      const routes = [
+      { name: 'Home', path: '/' },
+      { name: 'About', path: '/about' },
+      { name: 'Practica', path: '/practica' }
+      ]
+      
+      const navigate = (path) => {
+      router.push(path)
+      }
+      
+      let isActive = (path) => {
+      return route.path ===path
+      }
+      
+      &lt;/script>
+      &lt;!-- ************************************* -->
+      &lt;style scoped>
+      
+      &lt;/style>
+      
+          </div>
+        </pre>
+      </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+<section id="14">
+  <h2 class="h1">LAYOUTS, SLOTS & COMPOSABLES</h2>
+<ol>
+  <li><details class="select">
+    <summary>Proceso</summary>
+    <ol>
+      <li>Optimización declarativa (template)</li>
+      <li>se crea una carpeta leyout en el src</li>
+      <li>Se pone toda la estructura con su respectivo estilo</li>
+      <li>Las partes propias de cada vista se pone una etiqueta slot</li>
+    <img src="../media/vue/leyautDeclarativa01.png" alt="leyautDeclarativa01" class="img">
+    <img src="../media/vue/leyautDeclarativa02.png" alt="leyautDeclarativa02" class="img">
+  
+      <li>En la página o componente</li>
+      <li>se importa el layout</li>
+      <li>Se crea un template por cada slot</li>
+      <li>los slot se reemplazan por #</li>
+      
+      <h3>Optimización Programatica (script)</h3>
+      <li>carpeta composables </li>
+      <img src="../media/vue/composable01.png" alt="composable01" class="img">
+      <img src="../media/vue/composable02.png" alt="composable02" class="img">
+  
+    </ol>
+    <pre>
+      <div>
+      </div>
+    </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="15">
+  <h2 class="h1">ANIMACIONES  & ICONOS</h2>
+<ol>
+  <li><details class="select">
+    <summary>Creación</summary>
+    <div class="uno"> 
+      <H2></H2>
+    <ol>
+      <li>enter-from es el estado inicial va en style</li>
+      <li>enter-active es la acción</li>
+      <li>enter-to es la salida</li>
+      <img src="../media/vue/transition1.png" alt="transition1">
+    </ol>
+    
+    <pre>
+      &lt;template>
+      &lt;div class="container">
+    
+        &lt;Transition>
+          &lt;h1 v-if="show">Animaciones con VUE3&lt;/h1>
+        &lt;/Transition>
+        &lt;v-btn @click="show =!show" class="bg-purple">Mostrar/ Ocultar&lt;/v-btn>
+      &lt;/div>
+     
+    &lt;/template>
+    &lt;!-- ************************************* -->
+    &lt;script setup>
+    import { ref } from 'vue';
+    
+    
+    const show = ref(false)
+    
+    &lt;/script>
+    &lt;!-- ************************************* -->
+    &lt;style scoped>
+    .v-enter-active, .v-leave-active{
+      transition: opacity 1s ease;
+    }
+    .v-enter-from, .v-leave-to{
+      opacity: 0;
+    }
+    .container{
+      margin: 2em;
+    }
+    &lt;/style>
+    
+    </pre>
+    </div>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="16">
+  <h2 class="h1">PROPS-EMIT/INJECTION</h2>
+<ol>
+  <li><details class="select">
+    <summary>Props</summary>
+    <ol>		
+    <li>	Crear el view y el componente  	</li>
+    <li>	Padre: Se crean las variables, se importa el hijo y se envían las variables en el template	</li>
+    <li>	Hijo: recibe los valores en el script con el uso de defineProps	</li>
+    <li>	Se muestran en el template del view 	</li>
+    <li> La combinación de padre-hijo</li>
+    </ol>		
+    <img src="../media/vue/props.png" alt="props" class="img">
+            <pre>
+              <div>
+              <h2>componente Padre</h2>
+              &lt;template>
+      &lt;v-container :fluid="true">
+       &lt;h1>Padre&lt;/h1> 
+    
+       &lt;WorkView :nombre="nombre" :edad="edad"/>
+      &lt;/v-container>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { ref } from 'vue'
+    import WorkView from './WorkView.vue'
+    
+    let nombre = ref('Carlos')
+    let edad = ref(65)
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+    
+    ////////////////////////////////////////////////////
+    <h2>componente hijo</h2>
+    &lt;template>
+      &lt;div>
+       &lt;h1>Hijo&lt;/h1> 
+       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2>
+      &lt;/div>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    
+    const props = defineProps({
+      nombre: String,
+      edad: Number
+    })
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+              </div>
+            </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>EMITS</summary>
+    <ol>		
+    <li>	Hijo: crear una función en el template	</li>
+    <li>	Definir el emit y la función con el nombre y elementos de cambios	</li>
+    <li>	Padre: se enlaza la función del hijo con una función  del padre 	</li>
+    </ol>		
+    <img src="../media/vue/emits1.png" alt="emit1" class="img">
+            <pre>
+              <div>
+                
+              <h2>PADRE</h2>
+    &lt;template>
+      &lt;v-container :fluid="true">
+       &lt;h1>Padre&lt;/h1> &lt;br>&lt;br>
+    
+       &lt;WorkView :nombre="nombre" :edad="edad" @modificar="cambiarValor"/>
+      &lt;/v-container>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { ref } from 'vue'
+    import WorkView from './WorkView.vue'
+    
+    const cambiarValor=(valor1, valor2)=>{
+      nombre.value = valor1
+      edad.value = valor2
+    }
+    let nombre = ref('Carlos')
+    let edad = ref(65)
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+      ////////////////////////////////////////////////
+              <h2>HIJO</h2>
+    
+    &lt;template>
+      &lt;div>
+       &lt;h1>Hijo&lt;/h1> 
+       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2> &lt;br>&lt;br>
+    
+       &lt;v-btn @click="enviar">Cambiar valores&lt;/v-btn>
+      &lt;/div>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    
+    let emit = defineEmits(['modificar'])
+    const enviar=()=>{
+      emit('modificar', 'Martin', 38)
+    }
+    
+    const props = defineProps({
+      nombre: String,
+      edad: Number
+    })
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    div{
+      background-color: blanchedalmond;
+    }
+    &lt;/style>
+              </div>
+            </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>PROPS-ARRAY</summary>
+    <h1> PROPS & ARRAY</h1> 
+<ol>
+<li>Se crea la estructura en el componente hijo</li>
+<li>Se llama el componente hijo DESDE EL COMPONENTE PADRE</li>
+<li>Los datos del componente padre se insertan en el </li>
+<li>Aveces necesita para funcionar importar los props</li>
+<li>import { defineProps } from 'vue'</li>
+</ol>
+<img src="../media/vue/propsArray.png" alt="propsArray" class="img">
+  <pre>
+    <h2>Componente Padre</h2>
+    <div>
+      &lt;template>
+      &lt;v-container>
+        &lt;h1>VUE3&lt;/h1>
+        &lt;br>&lt;br>
+        &lt;v-row>
+          &lt;v-col
+            v-for="elm in info"
+            :key="elm.title"
+            cols="4"
+            
+          >
+            &lt;WorkComponent 
+              :title="elm.title" 
+              :content="elm.content" 
+            />
+          &lt;/v-col>
+        &lt;/v-row>
+      &lt;/v-container>
+    &lt;/template>
+    
+    &lt;script setup>
+    import WorkComponent from '@/components/WorkComponent'
+    
+    let info = [
+      { title: "Este es post 1", content: "Texto de Ejemplo1" },
+      { title: "Este es post 2", content: "Texto de Ejemplo2" },
+      { title: "Este es post 3", content: "Texto de Ejemplo3" },
+      { title: "Este es post 4", content: "Texto de Ejemplo4" },
+      { title: "Este es post 5", content: "Texto de Ejemplo5" },
+    ]
+    &lt;/script>
+    
+    &lt;style scoped>
+    
+    &lt;/style>
+
+    <h4>/////////////////////////////////////////////////</h4>
+    <h2>Componente Hijo</h2>
+    
+    &lt;template>
+  &lt;v-card 
+  class="mx-auto bg-teal" 
+  max-width="400"
+  height="177"
+  >
+    &lt;v-card-title>{{ title }}&lt;/v-card-title>
+    &lt;v-card-text>{{ content }}&lt;/v-card-text>
+  &lt;/v-card>
+&lt;/template>
+&lt;!-- //////////////////////////////////////////////////// -->
+&lt;script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  }
+})
+&lt;/script>
+&lt;!-- //////////////////////////////////////////////////// -->
+&lt;style scoped>
+
+&lt;/style>
+    </div>
+  </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>INJECTION</summary>
+      <h2>	INJECTION </h2>
+    <ol>	
+    <li>Se usa para traer elementos de una página a otra</li>	
+    <li>EL Padre envia los datos usa el provide</li>	
+    <li>el hijo los recibe con inject</li>	
+    <li></li>	
+    <li>	Padre: Se importa el hijo, se crea la variable y se envía con provide	</li>
+    <li> Primero se pone el nombre de envio entre comillas simples</li>
+    <li> y a continuación la variable que se envia, sin comillas</li>
+    <li>Ejemplo: provide('envio', num) </li>
+    <li>	Hijo: se recibe con el inject 	</li>
+    <li> Ejemplo : let producto = inject('envio')</li>
+    <li>Se muestra la variable producto</li>
+    <li>	Para cambiar se crea una función en el hijo con un botón 	</li>
+    <li>	Y el valor que se quiere cambiar. Listo 	</li>
+    </ol>		
+    <img src="../media/vue/injection.png" alt="injection" class="img">
+      <pre>
+        <div>
+        <h2>PADRE</h2>
+    
+    &lt;template>
+      &lt;v-container :fluid="true">
+       &lt;h1>PADRE MÉTODO INJECTION&lt;/h1> &lt;br>&lt;br>
+    
+       &lt;WorkView/>
+      &lt;/v-container>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { provide, ref } from 'vue'
+    import WorkView from './WorkView.vue'
+    
+    let canal = ref('Sofia')
+    provide('cambio', canal)
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+      //////////////////////////////////////////////////
+        <h2>HIJO</h2>
+    
+        &lt;template>
+        &lt;div>
+         &lt;h1>HIJO MÉTODO INJECTION&lt;/h1> 
+        &lt;h2>{{ canalHijo }}&lt;/h2> &lt;br>&lt;br>
+      &lt;v-btn @click="modificar">Cambiar&lt;/v-btn>
+      &lt;/div>
+      &lt;/template>
+      &lt;!-- ******************************* --> 
+      &lt;script setup>
+      import { inject } from 'vue';
+      
+      let canalHijo = inject('cambio')
+      
+      const modificar = () =>{
+        canalHijo.value = 'Ingrid'
+      }
+      
+      &lt;/script>
+      &lt;!-- ******************************* -->
+      &lt;style scoped>
+      div{
+        background-color: antiquewhite;
+        padding: 4em;
+      }
+      &lt;/style>
+        </div>
+      </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="17">
+  <h2 class="h1">SERVICE PLACEHOLDER</h2>
+<ol>
+  <li><details class="select">
+    <summary>PLACEHOLDER</summary>
+      <h1> LLAMAR API PLACEHOLDER </h1> 
+      <ol>
+      <li>hacer el componente </li>
+      <li>llamarlo en el View</li>	
+      <li>hacer la tabla en el componente, si se usa vuetify: v-data-table</li>
+      <li>se llama los datos usando :items="datum"</li>
+      <li>se crea un array datum ref vacío</li>
+      <li>con esto enlazamos el array al template</li>
+      <h3>LLAMAR LA API</h3>
+      <li>Se llama a trabes de un onMounted()</li>
+      <li>dentro un async como función flecha</li>
+      <li>dentro de la función un try-catch</li>
+      <li>dentro del try entre llaves un let response = await axios.get ('ruta de la api') en este caso:'https://jsonplaceholder.typicode.com/users' </li>
+      <h3>Instalar axios</h3>
+      <li>	Para llamar axios debe de estar instalado 	</li>
+      <li>	npm install axios	</li>
+      <li>	pero puede suceder que no deje instalarlo, 	</li>
+      <li>	se pude deber a que no es compatible con la versión (en mi caso de typescript)	</li>
+      <li>	se actualiza la versión con el comando	</li>
+      <li>	npm install typescript@latest	</li>
+
+      <h3>Capturar los datos</h3>
+      <li>se asigna a datum.value el response.data.map({})</li>
+      <li>dentro de las llaves un objeto con los nombres de cabecera y el llamado que se hace </li>
+      <li>ejemplo  NOMBRE : user.name,</li>
+      <li>el catch (error )</li>
+      <li>entre llaves un console.error</li>
+      <li>y dentro 'revisar', error</li>
+      <li><B>NOTA</B></li>
+      <li>también es posible llamar a los datos usando un v-for</li>
+       v-for="(nombre, index) in datum" :key="index">{{ nombre.NOMBRE }}         
+      </ol>
+      <img src="../media/vue/placeholder.PNG" alt="placeholder" class="img">
+        <pre>
+          <h3>Componente Hijo</h3>
+     <div class="base">
+      &lt;template>
+  &lt;v-data-table
+    :items="datum"
+  >
+
+  &lt;/v-data-table>
+&lt;/template>
+&lt;!-- ******************************* --> 
+&lt;script setup>
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
+let datum = ref([])
+onMounted ( async () => {
+  try {
+    const response = await axios.get ('https://jsonplaceholder.typicode.com/users')
+    datum.value = response.data.map(user => ({
+      Nombre :user.name,
+       Alias : user.username,
+       Correo : user.email
+    }))
+  } catch (error) {
+    console.error('revisar', error)
+  }
+})
+
+
+&lt;/script>
+&lt;!-- ******************************* -->
+&lt;style scoped>
+
+&lt;/style>
+     </div>
+        </pre>
+
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="18">
+  <h2 class="h1">FIREBASE</h2>
+<ol>
+  <li><details class="select">
+    <summary>AUTENTICACIÓN</summary>
+      <ol>
+        <li>Crear el proyecto y la página de login</li>
+        <li>Descargar un framework de estilos puede ser vuetify o bootstrap u otros</li>
+        <h4>Agregar algun Framework de estilos</h4>
+        <li>add vuetify</li>
+        <li>Bootstrap necesita 2 paquetes, bootstrap y popper</li>
+        <li>npm install --save bootstrap</li>
+        <li>npm install --save @popperjs/core</li>
+        <li>ir a Firebase y crear una cuenta </li>
+        <li>consola.firebase.google.com</li>
+        <li>elegir Crear un proyecto</li>
+        <li>Elegir Authentication</li>
+        <li>luego el metodo que puede ser correo, telefono, social etc</li>
+        <li>Generar el SDK</li>
+        <li>EN EL MAIN.TS pegar el import, codigo, inicializar el auth </li>
+        <li>ir a firebase</li>
+        <li>registrar el correo y clave en usuarios</li>
+      </ol>
+    
+      <pre>
+        <div>
+          &lt;template>
+      &lt;div class="container">
+          &lt;h1>Auth&lt;/h1>
+          &lt;form>
+      &lt;div class="mb-3">
+        &lt;label for="example" >Correo&lt;/label>
+        &lt;input type="email" class="form-control" id="example" aria-describedby="emailHelp" v-model="email">
+      &lt;/div>
+    
+      &lt;div class="mb-3">
+        &lt;label for="example" >Contraseña&lt;/label>
+        &lt;input type="password" class="form-control" id="example" v-model="pass">
+      &lt;/div>
+    
+      &lt;button type="submit" class="btn btn-primary" @click.prevent="authUser">Submit&lt;/button>
+    
+    &lt;/form>
+      &lt;/div>
+    &lt;/template>
+    &lt;!-- ************************************* -->
+    &lt;script setup>
+    import {ref} from 'vue'
+    import {signInWithEmailAndPassword, getAuth} from 'firebase/auth'
+    let email = ref("")
+    let pass = ref("")
+    
+    const authUser = () =>{
+      const auth = getAuth()
+      signInWithEmailAndPassword(auth, email.value, pass.value).then(()=>{
+        alert('Muy bien')
+      })
+        .catch((error) =>{
+          alert("error: " + error.message)
+        })
+      }
+    
+    &lt;/script>
+    &lt;!-- ************************************* -->
+    &lt;style scoped>
+    .container{
+      background-color: antiquewhite;
+      border: double 3px brown;
+      border-radius: 1em;
+      padding: 1em;
+    }
+    &lt;/style>
+        </div>
+      </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="19">
+  <h2 class="h1">PINIA</h2>
+<ol>
+  <li><details class="select">
+    <summary>CONFIGURAR</summary>
+  
+      <h1>PINIA</h1>
+      <ol>
+      <li>En el main importar pinia y configurar</li>
+      <img src="../media/vue/piniaMain.png" alt="piniaMain" class="img">
+      <li>En src crear la carpeta store</li>
+      <li>Crear el archivo </li>
+      <li>solo tiene 3 elementos store(datos), getters(computados) y actions(funciones)</li>
+      <img src="../media/vue/piniaCounter.png" alt="piniaCounter" class="img">
+      <li>En alguna página del proyecto</li>
+      <img src="../media/vue/piniaComponent.png"  alt="piniaComponent" class="img">
+      </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="20">
+  <h2 class="h1">PWA</h2>
+<ol>
+  <li><details class="select">
+    <summary>PWA</summary>
+      <a href="https://www.youtube.com/watch?v=9oQIylJ-JpU&list=PLvq-jIkSeTUYIw8CP2AP7QJs4GeeZdvs6">PWA</a>
+      <ol>
+        <li>Crear un proyecto nuevo</li>
+        <li>Generar el proyecto manualmente</li>
+        <li>incluir PWA</li>
+        <li>Todo lo demás por defecto</li>
+        <li>dirigir se al directorio de trabajo si no se a limpiado GIT</li>
+        <li>ejecutar el constructor con: npm run build</li>
+        <li>instalar el servidor de prueba : npm install http-server -g</li>
+        <li>Borrar el caché de chrome para evitar conflictos (ver store/windows/borrar datos de caché)</li>
+        <li>levantar el dist con http-server dist/</li>
+        <li>el servicio se levanta para iniciar la configuración del manifest.json y Service Worker</li>
+        <li>Se debe a que un service worker solo funciona a través de un https, un navegador seguro</li>
+        <h2>TUNELADO</h2>
+        <li>Se hace con ngrok: https://download.ngrok.com/windows</li>
+        <li>Descargar el ejecutable e instalarlo</li>
+        <li>Mostrará una consola donde ejecutaremos: ngrok.exe http 8080</li>
+        <h2>Registro </h2>
+        <li>si no estamos registrados dará error </li>
+        <li>Si no tienes una cuenta, ve a https://dashboard.ngrok.com/signup y regístrate.</li>
+           <li>en la terminal aparece https://dashboard.ngrok.com/signup y nos dará un token</li>
+        <li>ngrok config add-authtoken 2qOfOrs9pEYlOVwrvJzc2gohs2c_7xtxumV8LDcRQQJKLFpQv</li>
+        <li>se ejecuta en la terminal y guarda el acceso</li>
+        <li>Authtoken guardado en el archivo de configuración: C:\Users\cm7ch\AppData\Local/ngrok/ngrok.yml</li>
+        <li>Se levanta el servicio con el link que proporciona ngrok</li>
+        <li>Y debera aparecer el icono de instalar app</li>
+        <li>La app estará instalada en la PC y en el buscador se pone pwa y aparece la app</li>
+        <li>El manifest es para configurar la app</li>
+        <li>El service worker para optimizar el rendimiento</li>
+        <li></li>
+      </ol>
+    
+        <h2>Elaboración del MANIFIESTO</h2>
+        <ol>
+          <li>Se busca el manifest.json</li>
+          <li>todo aparece desordenado y en una linea; Se da formato con ALT+SHIFT+F</li>
+          <li>El manifest.json se mueve a public y se elimina de la carpeta dist</li>
+          <li>el name es el nombre que se muestra en la app</li>
+    
+        </ol>
+        <h2>Service Worker</h2>
+          <ol>
+            
+          <li>En src encontraremos registerServiceWorker ya configurado</li>
+          <li>TEMA : 33 VUE3 PROF</li>
+        </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="21">
+  <h2 class="h1">i18n</h2>
+<ol>
+  <li><details class="select">
+    <summary>i18n Paquete Estándar de Internacionalización</summary>
+ 
+      <H1> </H1>
+      <h2>Al final de la página esta el código completo de cada página</h2>
+    <ol>
+     <li>Crear un proyecto normal</li>
+     <li>Se instala el paquete de idiomas con: <br>  npm install vue-i18n@9</li>
+     <li>Para cada proyecto se instala el i18n para que configure el package.json</li>
+     <li>Se configura el main 
+       <pre>
+         import { createApp } from 'vue'
+         import App from './App.vue'
+         import router from './router'
+         import { createI18n } from 'vue-i18n' 
+         import { messages } from './lang/messages'
+         
+         const i18n = createI18n ({
+           locale: 'en',
+           fallbackLocale: 'en',
+           messages
+         })
+         const app = createApp(App)
+         
+         app.use(i18n)
+         app.use(router)
+         app.mount('#app')
+         
+    
+       </pre>
+       <li>Esta es la configuración básica inicial para el paquete i18n</li>
+     </li>
+     <li> se hace correr la app </li>
+     <h3>Configurar idiomas</h3>
+     <li>Crear una carpeta donde se aloje el contenido src / carpeta lang o language</li>
+     <li>dentro un archivo ejemplo messages.ts o js <br>
+     <pre>
+       export const messages = {
+         en: {
+            message: {
+             hello: 'Hello World',
+             content: 'We are using i18n package'
+            }
+         },
+       
+         es: {
+           message: {
+             hello: 'Hola mundo',
+             content: 'Estamos usando el paquete i18n',
+         }
+       }
+       }
+     </pre>
+     </li>
+    
+     <li>En la pagina que se muestra 
+       <pre>
+         &lt;template>
+           &lt;div>
+               &lt;h1>I18n &lt;/h1>
+               &lt;h2>{{ $t("message.hello") }}&lt;/h2>
+               &lt;p>{{ $t("message.content") }}&lt;/p>
+           &lt;/div>
+       &lt;/template>
+       &lt;!-- ************************************* -->
+       &lt;script setup>
+       import { messages } from '@/lang/messages';
+       
+       
+       &lt;/script>
+       &lt;!-- ************************************* -->
+       &lt;style scoped>
+       h1{
+         color: brown;
+       }
+       
+       &lt;/style>
+       &lt;/pre>
+     &lt;/li> <br><br><br>
+     &lt;h3>VARIABLES Y PLURALES&lt;/h3>
+     &lt;li>Se cambia el nombre por la variable &lt;br>
+       export const messages = {
+         en: {
+            message: {
+             hello: 'Hello {name}',
+             content: 'We are using i18n package'
+            }
+         },
+       
+         es: {
+           message: {
+             hello: 'Hola {name}',
+             content: 'Estamos usando el paquete i18n',
+         }
+       }
+       }
+     &lt;/li>
+     &lt;h3>Plurales&lt;/h3>
+     &lt;li> messages.ts
+       &lt;pre>
+         export const messages = {
+           en: {
+              message: {
+               hello: 'Hello {name} {surname}',
+               content: 'We are using i18n package',
+               products: 'no products | one product | {count} products',
+               comments: 'no comments | comment | comments',
+              }
+           },
+         
+           es: {
+             message: {
+               hello: 'Hola {name} {surname}',
+               content: 'Estamos usando el paquete i18n',
+               products: 'sin productos | un producto | {count} productos',
+               comments: 'sin comentarios|  comentario | comentarios',
+           }
+         }
+         }
+       &lt;/pre>
+     &lt;/li>
+     &lt;li>home.vue &lt;br>
+     &lt;pre>
+       &lt;template>
+         &lt;div>
+             &lt;h1>I18n &lt;/h1>
+             &lt;h2>{{ $t("message.hello", {name:userName, surname: surName }) }}&lt;/h2>
+             &lt;p>{{ $t("message.content") }}&lt;/p>
+             &lt;p>{{ $t("message.products", {count: 0}) }}&lt;/p>
+             &lt;p>{{ $t("message.comments",  {count: 5}) }}&lt;/p>
+         &lt;/div>
+     &lt;/template>
+     &lt;!-- ************************************* -->
+     &lt;script setup>
+     // import { messages } from '@/lang/messages';
+     import { ref } from 'vue';
+     
+     const userName = ref('Carlos')
+     const surName = ref('Cervera')
+     
+     &lt;/script>
+     &lt;!-- ************************************* -->
+     &lt;style scoped>
+     h1{
+       color: brown;
+     }
+     
+     &lt;/style>
+     &lt;/pre>&lt;/li>
+     &lt;h3>MENU CAMBIO DE IDIOMA&lt;/h3>
+    &lt;/ol>
+    <pre>
+      &lt;div class="">
+        &lt;select v-model="$i18n.locale">
+      &lt;option
+        v-for="locale in $i18n.availableLocales"
+        :key="locale"
+        :value="locale">
+        {{ locale }}
+      &lt;/option>
+    &lt;/select>
+    
+      &lt;/div>
+    </pre>
+    &lt;!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+    <h2>CONFIGURACIÓN FINAL</h2>
+    <h2>main.ts</h2>
+    <pre>
+      import { createApp } from 'vue'
+    import App from './App.vue'
+    import router from './router'
+    import { createI18n } from 'vue-i18n' 
+    import { messages } from './lang/messages'
+    
+    const i18n = createI18n ({
+      locale: 'en',
+      fallbackLocale: 'en',
+      messages
+    })
+    const app = createApp(App)
+    
+    app.use(i18n)
+    app.use(router)
+    app.mount('#app')
+    
+    </pre>
+    
+    <h2>messages.ts</h2>
+    <pre>
+      export const messages = {
+        en: {
+           message: {
+            hello: 'Hello {name} {surname}',
+            content: 'We are using i18n package',
+            products: 'no products | one product | {count} products',
+            comments: 'no comments | comment | comments',
+           }
+        },
+      
+        es: {
+          message: {
+            hello: 'Hola {name} {surname}',
+            content: 'Estamos usando el paquete i18n',
+            products: 'sin productos | un producto | {count} productos',
+            comments: 'sin comentarios|  comentario | comentarios',
+        }
+      }
+      }
+    </pre>
+    <h2>HomeView.vue</h2>
+    <pre>
+      &lt;template>
+      &lt;div class="">
+        &lt;select v-model="$i18n.locale">
+      &lt;option
+        v-for="locale in $i18n.availableLocales"
+        :key="locale"
+        :value="locale">
+        {{ locale }}
+      &lt;/option>
+    &lt;/select>
+    
+      &lt;/div>
+      
+        &lt;div>
+            &lt;h1>I18n &lt;/h1>
+            &lt;h2>{{ $t("message.hello", {name:userName, surname: surName }) }}&lt;/h2>
+            &lt;p>{{ $t("message.content") }}&lt;/p>
+            &lt;p>{{ $t("message.products", {count: 0}) }}&lt;/p>
+            &lt;p>{{ $t("message.comments",  {count: 5}) }}&lt;/p>
+        &lt;/div>
+    &lt;/template>
+    &lt;!-- ************************************* -->
+    &lt;script setup>
+    // import { messages } from '@/lang/messages';
+    import { ref } from 'vue';
+    
+    const userName = ref('Carlos')
+    const surName = ref('Cervera')
+    
+    &lt;/script>
+    &lt;!-- ************************************* -->
+    &lt;style scoped>
+    h1{
+      color: brown;
+    }
+    
+    &lt;/style>
+    </pre>
+
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="22">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1869,7 +3196,7 @@ const showDetails = ref(false);
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="">
+ <section id="23">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1889,7 +3216,7 @@ const showDetails = ref(false);
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="">
+ <section id="24">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1909,7 +3236,7 @@ const showDetails = ref(false);
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="">
+ <section id="25">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">
@@ -1929,7 +3256,107 @@ const showDetails = ref(false);
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="">
+ <section id="26">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="27">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="28">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="29">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="30">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="31">
   <h2 class="h1"></h2>
 <ol>
   <li><details class="select">

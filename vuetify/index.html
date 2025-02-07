@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <title>VUETIFY</title>
+</head>
+<body>
+  <p id="alInicio" class="principio"></p>
+  <header class="header">
+<span class="span1">VUE3 COMPONENT API</span>
+<a href="#alInicio"><img src="../media/CERVERA.png" alt="" class="img1"></a>
+  </header>
+  <!-- ///////////////////////////////////////////////////////// -->
+  <h1 class="h1">VUETIFY</h1>
+  <section class="main">
+    <ol>
+      <li class="lih"><a href="#1">MARGIN PADDING</a></li>
+      <li class="lih"><a href="#2"> </a></li>
+     
+    </ol>
+  </section> <br><br><hr><hr>
+   <!-- ////////////////////////////////////////////////// -->
+  <ol>
+    <li><details class="select">
+      <summary>COLOR</summary>
+      <ol>
+        <li class="li">LETRAS => text-blue</li>
+        <li class="li">AREA => bg-red</li>
+        <li class="li">          
+            <img src="../media/vuetify/color06.png" alt="color06" class="">
+            <img src="../media/vuetify/color05.png" alt="color05" class="">
+            <img src="../media/vuetify/color04.png" alt="color04" class="">
+            <img src="../media/vuetify/color03.png" alt="color03" class="">
+            <img src="../media/vuetify/color02.png" alt="color02" class="">
+            <img src="../media/vuetify/color01.png" alt="color01" class="">
+        </li>
+       
+        <li class="li">los matices van del 1 al: <br>lighten-5 <br>accent-4 <br> darken-4 <br></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary>MARGIN / PADDING</summary>
+      <ol>
+        <li class="li">MARGIN => ma-1  (max 5) <br> 1= 4; 2=8px; 3 = 16px; 4 = 32px, 5= 64px</li>
+        <li class="li">PADDING => pa-5</li>
+        <li class="li">también:mt, mb, mr, ml, mx, my  </li>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary>TABLA</summary>
+     <pre>
+      
+   &lt;v-table >
+   &lt;thead>
+     &lt;tr>
+       &lt;th >Nombre&lt;/th>
+       &lt;th > Precio</th>
+       &lt;th > Cantidad</th>
+     &lt;/tr>
+   &lt;/thead>
+   &lt;tbody>
+     &lt;tr v-for="(producto, index) in productos" :key="index">
+       &lt;td >{{ producto.nombre }}</td>
+       &lt;td >{{ producto.precio }}</td>
+       &lt;td >{{ producto.stock }}</td>
+     &lt;/tr>
+   &lt;/tbody>
+ &lt;/v-table>
+     </pre>
+    </details></li>
+    <!-- ******************************* -->
+   
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+  </ol>
+</body>
+</html>
