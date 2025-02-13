@@ -16,21 +16,21 @@
 <h1 class="h1">VUE3</h1>
 <section class="main">
   <ol>
-    <li class="lih"><a href="#1">Instalación y creación de un Proyecto</a> </li>
-    <li class="lih"><a href="#2">Los Componentes, Interpolación y Snippets</a></li>
-    <li class="lih"><a href="#3">Condicionales IF-SHOW</a></li>
-    <li class="lih"><a href="#4">v-for</a></li>
+    <li class="lih"><a href="#1">INSTALACIÓN Y CREACIÓN DE UN PROYECTO</a> </li>
+    <li class="lih"><a href="#2">COMPONENTES, INTERPOLACIÓN Y SNIPPETS</a></li>
+    <li class="lih"><a href="#3"> IF-SHOW</a></li>
+    <li class="lih"><a href="#4">V-FOR</a></li>
     <li class="lih"><a href="#5">v-bind </a></li>
     <li class="lih"><a href="#6">v-model</a></li>
     <li class="lih"><a href="#7">Checkbox</a></li>
     <li class="lih"><a href="#8">Select</a></li>
-    <li class="lih"><a href="#9">v-on</a></li>
-    <li class="lih"><a href="#10">Condicional Ternario</a></li>
-    <li class="lih"><a href="#11">Contador</a></li>
-    <li class="lih"><a href="#12">Reactividad</a></li>
-    <li class="lih"><a href="#13">Practica 1</a></li>
-    <li class="lih"><a href="#14"></a></li>
-    <li class="lih"><a href="#15"></a></li>
+    <li class="lih"><a href="#9">CONDICIONAL TERNARIO</a></li>
+    <li class="lih"><a href="#10"></a></li>
+    <li class="lih"><a href="#11">PRACTICA</a></li>
+    <li class="lih"><a href="#12">PROPS-EMIT/INJECTION</a></li>
+    <li class="lih"><a href="#13">RUTAS</a></li>
+    <li class="lih"><a href="#14">LAYOUTS, SLOTS & COMPOSABLES</a></li>
+    <li class="lih"><a href="#15">ANIMACIONES  & ICONOS</a></li>
     <li class="lih"><a href="#16"></a></li>
     <li class="lih"><a href="#17"></a></li>
     <li class="lih"><a href="#18"></a></li>
@@ -50,7 +50,7 @@
 </section> <br><br><hr><hr>
  <!-- ////////////////////////////////////////////////// -->
 <section id="1">
-  <h2 class="h1">Primera Instalación </h2>
+  <h2 class="h1">Instalación y creación de un Proyecto </h2>
     <ol>
 
 <li><details class="select">
@@ -93,7 +93,7 @@
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="2">
-  <h2 class="h1">Componentes</h2>
+  <h2 class="h1">Los Componentes, Interpolación y Snippets</h2>
 <ol>
   <li><details class="select">
     <summary>Los Componentes </summary>
@@ -139,7 +139,7 @@
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="3">
-  <h2 class="h1"> Condicionales</h2>
+  <h2 class="h1"> Condicionales IF-SHOW</h2>
 <ol>
   <li><details class="select">
     <summary>V-IF</summary>
@@ -1412,7 +1412,7 @@ let productos = [
  </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="6">
-  <h2 class="h1"></h2>
+  <h2 class="h1">V-MODEL</h2>
 <ol>
   <li><details class="select">
     <summary>v-model</summary>
@@ -1684,7 +1684,7 @@ let productos = [
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="7">
-  <h2 class="h1"></h2>
+  <h2 class="h1">CHECKBOX</h2>
 <ol>
   <li><details class="select">
     <summary>checkbox</summary>
@@ -1771,7 +1771,7 @@ let productos = [
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="8">
-  <h2 class="h1"></h2>
+  <h2 class="h1">SELECT</h2>
 <ol>
 
    <li><details class="select">
@@ -1841,7 +1841,7 @@ let productos = [
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="9">
-  <h2 class="h1">Condicional Ternario</h2>
+  <h2 class="h1">CONDICIONAL TERNARIO</h2>
 <ol>
 
    <li><details class="select">
@@ -1903,190 +1903,658 @@ let ahorro = 400
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="10">
-  <h2 class="h1">Contador</h2>
-<ol>
-
-   <li><details class="select">
-    <summary></summary>
-    <h1>Contador </h1>
-    <img src="/src/asset../media/vue/contador.png" alt="">
-    <pre>
-      <div>
-        &lt;template>
-        &lt;h1>HOME&lt;/h1>
-        &lt;div class="ma-8 bg-teal text-black ">
-          &lt;v-btn @click="contador++" >AGREGAR&lt;/v-btn>
-          &lt;h2 class="mx-10 my-6">{{ contador }}&lt;/h2>
-          &lt;v-btn @click="contador--" >DISMINUIR&lt;/v-btn>
-        &lt;/div>
-        
-        &lt;/template>
-        &lt;!-- ******************************* --> 
-        &lt;script setup>
-      import { ref } from 'vue';
-      
-           let contador = ref(1)
-        &lt;/script>
-        &lt;!-- ******************************* --> 
-        &lt;style scoped>
-      
-      &lt;/style>
-      </div>
-    </pre>
-  </details></li>
+  <h2 class="h1"></h2>
+  <ol>
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary></summary>
+      <ol>
+        <li class="li"></li>
+      </ol>
+    </details></li>
+    <!-- ******************************* -->
+  </ol>
   <!-- ******************************* -->
-
+</ol>
 </section>
 <!-- ////////////////////////////////////////////////// -->
  <section id="11">
-  <h2 class="h1">Reactividad</h2>
-<ol>
-  <li><details class="select">
-    <summary></summary>
-  
-    <ol>		
-    <li> botón que incremente de 100 en 100	</li>
-    <li>	Que cambie de color pasando 1000	</li>
-    <li>inicie en 500	</li>
-    </ol>		
-    <img src="../media/vue/reactividad.png" alt="reactividad" class="img">
-    /////////////////////////////////////////////////////////
+  <h2 class="h1">PRACTICA </h2>
+  <ol>
+    <li><details class="select">
+      <summary>Contador</summary>
+   
+      <img src="" alt="">
       <pre>
         <div>
-        
-    &lt;template>
-    &lt;div>
-     &lt;h1>REACTIVIDAD&lt;/h1> 
-      &lt;h2 :class="ahorro>1000 ? 'blue' :'green'">Ahorro : {{ ahorro }}&lt;/h2> &lt;br>&lt;br>
-    
-      &lt;v-btn @click="aumento">Ingresar $ 100&lt;/v-btn>
-    &lt;/div>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    import { ref } from 'vue';
-    
-    let ahorro = ref(500)
-    let aumento = () => {
-    ahorro.value+= 100
-    }
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    .blue{
-    color: blue;
-    }
-    .green{
-    color: green;
-    }
-    div{
-    background-color: blanchedalmond;
-    }
-    &lt;/style>
-        </div>
-      </pre>
-  </details></li>
-  <!-- ******************************* -->
-  <li><details class="select">
-    <summary></summary>
-    <ol>
-      <li class="li"></li>
-    </ol>
-  </details></li>
-  <!-- ******************************* -->
-</ol>
- </section>
-<!-- ////////////////////////////////////////////////// -->
- 
- <section id="12">
-  <h2 class="h1">PRACTICA UNO</h2>
-<ol>
-  <li><details class="select">
-    <summary></summary>
-        <h4>Objetivo</h4>
-<ol>
-<li>	mostrar saldo	</li>
-<li>	Botones de depósito y retiro	</li>
-<li>	si esta en o que no pueda retirar //usar un alert	</li>
-<li>	cantidad de movimientos	</li>
-<li>	listado de movimientos 	</li>
-<li>	Dar estilos 	</li>
-</ol>
-<h4>Proceso</h4>
-<ol>
-  <li>Hacer el let referencial y llamarlo en el template</li>
-  <li>Crear un botón con la función mas</li>
-  <li>Hacer la lógica de aumentar </li>
-  <li>Duplicar y cambiar a disminuir</li>
-  <li>Crear el boton menos</li>
-  <li>No puede haber saldo negativo</li>
-  <li>crear una condicional que emita un alert</li>
-  <li>H3 la cantidad de movimientos en let ref</li>
-  <li>Mostrar si ha sido un deposito o retiro de 100</li>
-  <li>Definir un array ref</li>
-  <li>Aumentar la lógica con un push</li>
-  <li>Llamarlo con un v-for</li>
-  <li>Aunmentar la logica para disminuir</li>
-  <li>Darle estilo</li>
-</ol>
-<img src="../media/vue/practicaUno.png" alt="Practica Uno" class="img">
-        <pre>
-          <div>
-            &lt;template>
-            &lt;div>
-             &lt;h1>Practica Uno&lt;/h1>  &lt;br>&lt;br>
-              &lt;h2>Ahorros  $.{{ ahorro }}&lt;/h2> &lt;br>&lt;br>
-              &lt;h2>Cantidad de movimientos {{ movimiento }}&lt;/h2> &lt;br>&lt;br>
-              &lt;v-btn @click="deposito" class="btn">Depósito&lt;/v-btn>
-              &lt;v-btn @click="retiro">Retiro&lt;/v-btn> &lt;br>&lt;br>&lt;br>
-           
-              &lt;h3>MOVIMIENTOS &lt;/h3>
-              &lt;ol>
-                &lt;li v-for="(mov, index) in movimientos" :key="index">{{ mov }}&lt;/li>
-              &lt;/ol>
-            &lt;/div>
+          &lt;template>
+          &lt;h1>HOME&lt;/h1>
+          &lt;div class="ma-8 bg-teal text-black ">
+            &lt;v-btn @click="contador++" >AGREGAR&lt;/v-btn>
+            &lt;h2 class="mx-10 my-6">{{ contador }}&lt;/h2>
+            &lt;v-btn @click="contador--" >DISMINUIR&lt;/v-btn>
+          &lt;/div>
+          
           &lt;/template>
           &lt;!-- ******************************* --> 
           &lt;script setup>
-          import { ref } from 'vue';
-          
-          
-          let ahorro = ref(0)
-          let movimiento = ref(0)
-          let movimientos = ref([])
-          
-          let retiro = ()=>{
-            if (ahorro.value > 0) {
-              ahorro.value -= 100
-              movimiento.value++
-              movimientos.value.push('Retiro $100.00')
-              
-            }else{
-              alert('No tiene Fondos')
-            }
-          }
-          let deposito = ()=>{
-            ahorro.value += 100
-            movimiento.value++
-            movimientos.value.push('Deposito $100.00')
-          }
+        import { ref } from 'vue';
+        
+             let contador = ref(1)
           &lt;/script>
-          &lt;!-- ******************************* -->
+          &lt;!-- ******************************* --> 
           &lt;style scoped>
-          div{
-            background-color: blanchedalmond;
-            margin: 4em;
-            padding: 4em;
-          }
-          .btn{
-            margin-right: 2em;
-          }
-          h2{
-            margin-left: 3rem;
-          }
-          &lt;/style>
-          </div>
-        </pre>
+        
+        &lt;/style>
+        </div>
+      </pre>
+      <img src="../media/vue/contador.png" alt="contador" class="img">
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary>Tarjetas</summary>
+          <h4>Objetivo</h4>
+  <ol>
+  <li>	mostrar saldo	</li>
+  <li>	Botones de depósito y retiro	</li>
+  <li>	si esta en 0 que no pueda retirar //usar un alert	</li>
+  <li>	cantidad de movimientos	</li>
+  <li>	listado de movimientos 	</li>
+  <li>	Dar estilos 	</li>
+  </ol>
+  <h4>Proceso</h4>
+  <ol>
+    <li>Hacer el let referencial y llamarlo en el template</li>
+    <li>Crear un botón con la función mas</li>
+    <li>Hacer la lógica de aumentar </li>
+    <li>Duplicar y cambiar a disminuir</li>
+    <li>Crear el boton menos</li>
+    <li>No puede haber saldo negativo</li>
+    <li>crear una condicional que emita un alert</li>
+    <li>H3 la cantidad de movimientos en let ref</li>
+    <li>Mostrar si ha sido un deposito o retiro de 100</li>
+    <li>Definir un array ref</li>
+    <li>Aumentar la lógica con un push</li>
+    <li>Llamarlo con un v-for</li>
+    <li>Aunmentar la logica para disminuir</li>
+    <li>Darle estilo</li>
+  </ol>
+  <img src="../media/vue/practicaUno.png" alt="Practica Uno" class="img">
+          <pre>
+            <div>
+              &lt;template>
+              &lt;div>
+               &lt;h1>Practica Uno&lt;/h1>  &lt;br>&lt;br>
+                &lt;h2>Ahorros  $.{{ ahorro }}&lt;/h2> &lt;br>&lt;br>
+                &lt;h2>Cantidad de movimientos {{ movimiento }}&lt;/h2> &lt;br>&lt;br>
+                &lt;v-btn @click="deposito" class="btn">Depósito&lt;/v-btn>
+                &lt;v-btn @click="retiro">Retiro&lt;/v-btn> &lt;br>&lt;br>&lt;br>
+             
+                &lt;h3>MOVIMIENTOS &lt;/h3>
+                &lt;ol>
+                  &lt;li v-for="(mov, index) in movimientos" :key="index">{{ mov }}&lt;/li>
+                &lt;/ol>
+              &lt;/div>
+            &lt;/template>
+            &lt;!-- ******************************* --> 
+            &lt;script setup>
+            import { ref } from 'vue';
+            
+            
+            let ahorro = ref(0)
+            let movimiento = ref(0)
+            let movimientos = ref([])
+            
+            let retiro = ()=>{
+              if (ahorro.value > 0) {
+                ahorro.value -= 100
+                movimiento.value++
+                movimientos.value.push('Retiro $100.00')
+                
+              }else{
+                alert('No tiene Fondos')
+              }
+            }
+            let deposito = ()=>{
+              ahorro.value += 100
+              movimiento.value++
+              movimientos.value.push('Deposito $100.00')
+            }
+            &lt;/script>
+            &lt;!-- ******************************* -->
+            &lt;style scoped>
+            div{
+              background-color: blanchedalmond;
+              margin: 4em;
+              padding: 4em;
+            }
+            .btn{
+              margin-right: 2em;
+            }
+            h2{
+              margin-left: 3rem;
+            }
+            &lt;/style>
+            </div>
+          </pre>
+    </details></li>
+    <!-- ******************************* -->
+    
+      <li><details class="select">
+        <summary>Ingresar datos</summary>
+      
+        <ol>		
+        <li> Hacer una app donde se ingresen cantidades a través de un input y estas se muestren y sumen al saldo. 	</li>
+        </ol>		
+        <img src="../media/vue/reactividad.png" alt="reactividad" class="img">
+        /////////////////////////////////////////////////////////
+         <pre>
+          &lt;template>
+          &lt;div>
+              &lt;h1>Practica 1&lt;/h1> &lt;br>&lt;br>
+              &lt;input type="number" class="bg-teal-lighten-2" v-model="total"> &lt;br>&lt;br>&lt;br>
+              &lt;h2>AHORROS $ : {{ ahorro }}&lt;/h2>
+       
+      
+      &lt;h3 class="text-green">Cantidad de Movimientos : {{ movimiento }}&lt;/h3>
+      
+              &lt;v-btn @click="decrement" class="ma-2 mt-7 bg-purple">Retirar&lt;/v-btn>
+              &lt;v-btn @click="increment" class="ma-2 mt-7 bg-teal">Depositar&lt;/v-btn>
+          &lt;/div>
+      &lt;/template>
+      &lt;!-- ************************************* -->
+      &lt;script setup>
+      import { ref } from 'vue';
+      
+      let total= ref()
+      let movimiento = ref(0)
+      let ahorro = ref(0)
+      let increment =()=>{
+        ahorro.value += total.value
+        movimiento.value ++
+        total.value = null
+      }
+      let decrement =()=>{
+        if (ahorro.value &lt;100) {
+          alert('USTED NO DISPONE DE FONDOS')
+        } else {
+          ahorro.value -= total.value
+          movimiento.value ++
+        }
+       
+      }
+      &lt;/script>
+      &lt;!-- ************************************* -->
+      &lt;style scoped>
+      
+      &lt;/style>
+         </pre>
+      </details></li>
+      <!-- ******************************* -->
+      <li><details class="select">
+        <summary>CALCULADORA</summary>
+      <pre>
+        
+
+&lt;template >
+&lt;h1 class=" ml-12">CALCULADORA&lt;/h1>
+    &lt;div>
+   &lt;br>
+        &lt;v-text-field
+          class="bg-teal-lighten-2 ml-12" 
+          v-model="num2"
+          type="number"
+          outlined  
+          width="20em"
+        >&lt;/v-text-field>
+   
+        &lt;h2 class="text-red ml-12">RESULTADO : {{ num1 }}&lt;/h2>
+ 
+&lt;div class="uno">
+  &lt;v-btn @click="decrement" class="ma-2 mt-7 bg-purple">-&lt;/v-btn>
+    &lt;v-btn @click="increment" class="ma-2 mt-7 bg-teal">+&lt;/v-btn>
+    &lt;v-btn @click="multi" class="ma-2 mt-7 bg-cyan">*&lt;/v-btn>
+    &lt;v-btn @click="div" class="ma-2 mt-7 bg-blue">/&lt;/v-btn>
+  &lt;v-btn @click="potencia" class="ma-2 mt-7 bg-brown">Potencia&lt;/v-btn>
+&lt;/div>
+  &lt;div class="dos">
+  &lt;v-btn @click="raiz2" class="ma-2 mt-7 bg-amber">raíz2&lt;/v-btn>
+  &lt;v-btn @click="inicio" class="ma-2 mt-7 bg-pink">REINICIAR&lt;/v-btn>
+  &lt;/div>
+  
+    &lt;/div>
+&lt;/template>
+&lt;!-- ************************************* -->
+&lt;script setup>
+import { ref } from 'vue';
+
+let num2= ref(0)
+let movimiento = ref(0)
+let num1 = ref(0)
+let increment =()=>{
+  num1.value += parseFloat(num2.value)
+  num2.value = null
+}
+let decrement =()=>{
+  if (num1.value===0) {
+    num1.value += parseFloat(num2.value)
+    num2.value = null
+  } else {
+    num1.value -= parseFloat(num2.value)
+    num2.value = null
+  }
+   
+}
+let multi =()=>{
+  if (num1.value===0) {
+    num1.value += parseFloat(num2.value)
+    num2.value = null
+  } else {
+    num1.value *= parseFloat(num2.value)
+    num2.value = null
+  }
+}
+let div =()=>{
+  if (num1.value===0) {
+    num1.value += parseFloat(num2.value)
+    num2.value = null
+  } else {
+    num1.value /= parseFloat(num2.value)
+    num2.value = null
+  }
+
+}
+let potencia =()=>{
+  if (num1.value===0) {
+    num1.value += parseFloat(num2.value)
+    num2.value = null
+  } else {
+    num1.value = Math.pow(num1.value, num2.value)
+    num2.value = null
+  }
+    
+}
+let raiz2 =()=>{
+    num1.value = Math.sqrt(num2.value)
+    num2.value = null
+}
+let inicio =()=>{
+    num1.value = 0
+    num2.value = 0
+}
+&lt;/script>
+&lt;!-- ************************************* -->
+&lt;style scoped>
+.uno{
+  border: 5px double brown;
+  margin: 3em;
+  padding: 1em;
+  width: 40em;
+}
+.dos{
+  border: 5px double brown;
+  margin-bottom: 5em;
+  padding: 1em;
+  width: 40em;
+  margin-left: 3em;
+}
+&lt;/style>
+      </pre>
+      <img src="../media/vue/calculadoraVue.png" alt="calculadoraVue" class="img">
+      </details></li>
+      <!-- ******************************* -->
+      <li><details class="select">
+        <summary></summary>
+        <ol>
+          <li class="li"></li>
+        </ol>
+      </details></li>
+      <!-- ******************************* -->
+      <li><details class="select">
+        <summary></summary>
+        <ol>
+          <li class="li"></li>
+        </ol>
+      </details></li>
+      <!-- ******************************* -->
+      <li><details class="select">
+        <summary></summary>
+        <ol>
+          <li class="li"></li>
+        </ol>
+      </details></li>
+      <!-- ******************************* -->
+    </ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ 
+<section id="12">
+  <h2 class="h1">PROPS-EMIT/INJECTION</h2>
+<ol>
+  <li><details class="select">
+    <summary>PROPS</summary>
+    <ol>		
+    <li>	Crear el view y el componente  	</li>
+    <li>	Padre: Se crean las variables, se importa el hijo y se envían las variables en el template	</li>
+    <li>	Hijo: recibe los valores en el script con el uso de defineProps	</li>
+    <li>	Se muestran en el template del view 	</li>
+    <li> La combinación de padre-hijo</li>
+    </ol>		
+    <img src="../media/vue/props.png" alt="props" class="img">
+            <pre>
+              <div>
+              <h2>componente Padre</h2>
+              &lt;template>
+      &lt;v-container :fluid="true">
+       &lt;h1>Padre&lt;/h1> 
+    
+       &lt;WorkView :nombre="nombre" :edad="edad"/>
+      &lt;/v-container>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { ref } from 'vue'
+    import WorkView from './WorkView.vue'
+    
+    let nombre = ref('Carlos')
+    let edad = ref(65)
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+    
+    ////////////////////////////////////////////////////
+    <h2>componente hijo</h2>
+    &lt;template>
+      &lt;div>
+       &lt;h1>Hijo&lt;/h1> 
+       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2>
+      &lt;/div>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    
+    const props = defineProps({
+      nombre: String,
+      edad: Number
+    })
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+              </div>
+            </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>EMITS</summary>
+    <ol>		
+    <li>	Hijo: crear una función en el template	</li>
+    <li>	Definir el emit y la función con el nombre y elementos de cambios	</li>
+    <li>	Padre: se enlaza la función del hijo con una función  del padre 	</li>
+    </ol>		
+    <img src="../media/vue/emits1.png" alt="emit1" class="img">
+            <pre>
+              <div>
+                
+              <h2>PADRE</h2>
+    &lt;template>
+      &lt;v-container :fluid="true">
+       &lt;h1>Padre&lt;/h1> &lt;br>&lt;br>
+    
+       &lt;WorkView :nombre="nombre" :edad="edad" @modificar="cambiarValor"/>
+      &lt;/v-container>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    import { ref } from 'vue'
+    import WorkView from './WorkView.vue'
+    
+    const cambiarValor=(valor1, valor2)=>{
+      nombre.value = valor1
+      edad.value = valor2
+    }
+    let nombre = ref('Carlos')
+    let edad = ref(65)
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    
+    &lt;/style>
+      ////////////////////////////////////////////////
+              <h2>HIJO</h2>
+    
+    &lt;template>
+      &lt;div>
+       &lt;h1>Hijo&lt;/h1> 
+       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2> &lt;br>&lt;br>
+    
+       &lt;v-btn @click="enviar">Cambiar valores&lt;/v-btn>
+      &lt;/div>
+    &lt;/template>
+    &lt;!-- ******************************* --> 
+    &lt;script setup>
+    
+    let emit = defineEmits(['modificar'])
+    const enviar=()=>{
+      emit('modificar', 'Martin', 38)
+    }
+    
+    const props = defineProps({
+      nombre: String,
+      edad: Number
+    })
+    &lt;/script>
+    &lt;!-- ******************************* -->
+    &lt;style scoped>
+    div{
+      background-color: blanchedalmond;
+    }
+    &lt;/style>
+              </div>
+            </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>PROPS-ARRAY</summary>
+    <h1> PROPS & ARRAY</h1> 
+<ol>
+<li>Se crea la estructura en el componente hijo</li>
+<li>Se llama el componente hijo DESDE EL COMPONENTE PADRE</li>
+<li>Los datos del componente padre se insertan en el </li>
+<li>Aveces necesita para funcionar importar los props</li>
+<li>import { defineProps } from 'vue'</li>
+</ol>
+<img src="../media/vue/propsArray.png" alt="propsArray" class="img">
+  <pre>
+    <h2>Componente Padre</h2>
+    <div>
+      &lt;template>
+      &lt;v-container>
+        &lt;h1>VUE3&lt;/h1>
+        &lt;br>&lt;br>
+        &lt;v-row>
+          &lt;v-col
+            v-for="elm in info"
+            :key="elm.title"
+            cols="4"
+            
+          >
+            &lt;WorkComponent 
+              :title="elm.title" 
+              :content="elm.content" 
+            />
+          &lt;/v-col>
+        &lt;/v-row>
+      &lt;/v-container>
+    &lt;/template>
+    
+    &lt;script setup>
+    import WorkComponent from '@/components/WorkComponent'
+    
+    let info = [
+      { title: "Este es post 1", content: "Texto de Ejemplo1" },
+      { title: "Este es post 2", content: "Texto de Ejemplo2" },
+      { title: "Este es post 3", content: "Texto de Ejemplo3" },
+      { title: "Este es post 4", content: "Texto de Ejemplo4" },
+      { title: "Este es post 5", content: "Texto de Ejemplo5" },
+    ]
+    &lt;/script>
+    
+    &lt;style scoped>
+    
+    &lt;/style>
+
+    <h4>/////////////////////////////////////////////////</h4>
+    <h2>Componente Hijo</h2>
+    
+    &lt;template>
+  &lt;v-card 
+  class="mx-auto bg-teal" 
+  max-width="400"
+  height="177"
+  >
+    &lt;v-card-title>{{ title }}&lt;/v-card-title>
+    &lt;v-card-text>{{ content }}&lt;/v-card-text>
+  &lt;/v-card>
+&lt;/template>
+&lt;!-- //////////////////////////////////////////////////// -->
+&lt;script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  }
+})
+&lt;/script>
+&lt;!-- //////////////////////////////////////////////////// -->
+&lt;style scoped>
+
+&lt;/style>
+    </div>
+  </pre>
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary>INJECTION</summary>
+      <h2>	INJECTION </h2>
+    <ol>	
+    <li>Se usa para traer elementos de una página a otra</li>	
+    <li>EL Padre envia los datos usa el provide</li>	
+    <li>el hijo los recibe con inject</li>	
+    <li></li>	
+    <li>	Padre: Se importa el hijo, se crea la variable y se envía con provide	</li>
+    <li> Primero se pone el nombre de envio entre comillas simples</li>
+    <li> y a continuación la variable que se envia, sin comillas</li>
+    <li>Ejemplo: provide('envio', num) </li>
+    <li>	Hijo: se recibe con el inject 	</li>
+    <li> Ejemplo : let producto = inject('envio')</li>
+    <li>Se muestra la variable producto</li>
+    <li>	Para cambiar se crea una función en el hijo con un botón 	</li>
+    <li>	Y el valor que se quiere cambiar. Listo 	</li>
+    </ol>		
+    <img src="../media/vue/injection.png" alt="injection" class="img">
+
+    <h4 class="cita">PADRE</h4>
+   <pre>
+    &lt;template>
+&lt;div class="init">
+  &lt;H1>VUE&lt;/H1>
+  &lt;PracticaVue/>
+
+  &lt;v-app>
+    &lt;v-main>
+      &lt;router-view/>
+    &lt;/v-main>
+  &lt;/v-app>
+&lt;/div>
+&lt;/template>
+&lt;!-- *********************************************** -->
+&lt;script lang="ts" setup>
+import PracticaVue from './components/PracticaVue.vue';
+import { ref, provide } from "vue";
+
+let enviar = ref([
+  {
+    nombre: 'Carlos',
+    edad: 65,
+  },
+  {
+    nombre: 'Rebeca',
+    edad: 30,
+  },
+  {
+    nombre: 'Michael',
+    edad: 28,
+  },
+  {
+    nombre: 'Giancarlo',
+    edad: 26,
+  },
+  {
+    nombre: 'Adrian',
+    edad: 14,
+  },
+])
+provide('cambio', enviar)
+
+&lt;/script>
+&lt;!-- *********************************************** -->
+
+&lt;style>
+.init{
+  margin: 2em;
+  padding: 1em;
+  background-color: antiquewhite;
+}
+
+.h1{
+  color: brown;
+}
+&lt;/style>
+   </pre>
+
+   ////////////////////////////////////////////////////////////
+   <h3 class="cita">HIJO</h3>
+ <pre>
+  &lt;template>
+  &lt;v-app>
+      &lt;v-data-table
+        :items="mostrar"
+        class="elevation-1"
+      >
+        &lt;template v-slot:top >
+          &lt;v-toolbar flat class="bg-teal-lighten-3">
+            &lt;v-toolbar-title >Mi Tabla &lt;/v-toolbar-title>
+
+          &lt;/v-toolbar>
+        &lt;/template>
+      &lt;/v-data-table>
+  &lt;/v-app>
+&lt;/template>
+&lt;!-- ***************************************** -->
+&lt;script setup>
+import { inject, ref } from 'vue';
+
+let mostrar =ref( inject('cambio'))
+&lt;/script>
+&lt;!-- ***************************************** -->
+&lt;style scoped>
+
+&lt;/style>
+ </pre>
   </details></li>
   <!-- ******************************* -->
   <li><details class="select">
@@ -2349,304 +2817,8 @@ let ahorro = 400
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
+
  <section id="16">
-  <h2 class="h1">PROPS-EMIT/INJECTION</h2>
-<ol>
-  <li><details class="select">
-    <summary>Props</summary>
-    <ol>		
-    <li>	Crear el view y el componente  	</li>
-    <li>	Padre: Se crean las variables, se importa el hijo y se envían las variables en el template	</li>
-    <li>	Hijo: recibe los valores en el script con el uso de defineProps	</li>
-    <li>	Se muestran en el template del view 	</li>
-    <li> La combinación de padre-hijo</li>
-    </ol>		
-    <img src="../media/vue/props.png" alt="props" class="img">
-            <pre>
-              <div>
-              <h2>componente Padre</h2>
-              &lt;template>
-      &lt;v-container :fluid="true">
-       &lt;h1>Padre&lt;/h1> 
-    
-       &lt;WorkView :nombre="nombre" :edad="edad"/>
-      &lt;/v-container>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    import { ref } from 'vue'
-    import WorkView from './WorkView.vue'
-    
-    let nombre = ref('Carlos')
-    let edad = ref(65)
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    
-    &lt;/style>
-    
-    ////////////////////////////////////////////////////
-    <h2>componente hijo</h2>
-    &lt;template>
-      &lt;div>
-       &lt;h1>Hijo&lt;/h1> 
-       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2>
-      &lt;/div>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    
-    const props = defineProps({
-      nombre: String,
-      edad: Number
-    })
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    
-    &lt;/style>
-              </div>
-            </pre>
-  </details></li>
-  <!-- ******************************* -->
-  <li><details class="select">
-    <summary>EMITS</summary>
-    <ol>		
-    <li>	Hijo: crear una función en el template	</li>
-    <li>	Definir el emit y la función con el nombre y elementos de cambios	</li>
-    <li>	Padre: se enlaza la función del hijo con una función  del padre 	</li>
-    </ol>		
-    <img src="../media/vue/emits1.png" alt="emit1" class="img">
-            <pre>
-              <div>
-                
-              <h2>PADRE</h2>
-    &lt;template>
-      &lt;v-container :fluid="true">
-       &lt;h1>Padre&lt;/h1> &lt;br>&lt;br>
-    
-       &lt;WorkView :nombre="nombre" :edad="edad" @modificar="cambiarValor"/>
-      &lt;/v-container>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    import { ref } from 'vue'
-    import WorkView from './WorkView.vue'
-    
-    const cambiarValor=(valor1, valor2)=>{
-      nombre.value = valor1
-      edad.value = valor2
-    }
-    let nombre = ref('Carlos')
-    let edad = ref(65)
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    
-    &lt;/style>
-      ////////////////////////////////////////////////
-              <h2>HIJO</h2>
-    
-    &lt;template>
-      &lt;div>
-       &lt;h1>Hijo&lt;/h1> 
-       &lt;h2>Te llamas {{ nombre }} y tienes {{ edad }} años&lt;/h2> &lt;br>&lt;br>
-    
-       &lt;v-btn @click="enviar">Cambiar valores&lt;/v-btn>
-      &lt;/div>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    
-    let emit = defineEmits(['modificar'])
-    const enviar=()=>{
-      emit('modificar', 'Martin', 38)
-    }
-    
-    const props = defineProps({
-      nombre: String,
-      edad: Number
-    })
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    div{
-      background-color: blanchedalmond;
-    }
-    &lt;/style>
-              </div>
-            </pre>
-  </details></li>
-  <!-- ******************************* -->
-  <li><details class="select">
-    <summary>PROPS-ARRAY</summary>
-    <h1> PROPS & ARRAY</h1> 
-<ol>
-<li>Se crea la estructura en el componente hijo</li>
-<li>Se llama el componente hijo DESDE EL COMPONENTE PADRE</li>
-<li>Los datos del componente padre se insertan en el </li>
-<li>Aveces necesita para funcionar importar los props</li>
-<li>import { defineProps } from 'vue'</li>
-</ol>
-<img src="../media/vue/propsArray.png" alt="propsArray" class="img">
-  <pre>
-    <h2>Componente Padre</h2>
-    <div>
-      &lt;template>
-      &lt;v-container>
-        &lt;h1>VUE3&lt;/h1>
-        &lt;br>&lt;br>
-        &lt;v-row>
-          &lt;v-col
-            v-for="elm in info"
-            :key="elm.title"
-            cols="4"
-            
-          >
-            &lt;WorkComponent 
-              :title="elm.title" 
-              :content="elm.content" 
-            />
-          &lt;/v-col>
-        &lt;/v-row>
-      &lt;/v-container>
-    &lt;/template>
-    
-    &lt;script setup>
-    import WorkComponent from '@/components/WorkComponent'
-    
-    let info = [
-      { title: "Este es post 1", content: "Texto de Ejemplo1" },
-      { title: "Este es post 2", content: "Texto de Ejemplo2" },
-      { title: "Este es post 3", content: "Texto de Ejemplo3" },
-      { title: "Este es post 4", content: "Texto de Ejemplo4" },
-      { title: "Este es post 5", content: "Texto de Ejemplo5" },
-    ]
-    &lt;/script>
-    
-    &lt;style scoped>
-    
-    &lt;/style>
-
-    <h4>/////////////////////////////////////////////////</h4>
-    <h2>Componente Hijo</h2>
-    
-    &lt;template>
-  &lt;v-card 
-  class="mx-auto bg-teal" 
-  max-width="400"
-  height="177"
-  >
-    &lt;v-card-title>{{ title }}&lt;/v-card-title>
-    &lt;v-card-text>{{ content }}&lt;/v-card-text>
-  &lt;/v-card>
-&lt;/template>
-&lt;!-- //////////////////////////////////////////////////// -->
-&lt;script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  content: {
-    type: String,
-    required: true
-  }
-})
-&lt;/script>
-&lt;!-- //////////////////////////////////////////////////// -->
-&lt;style scoped>
-
-&lt;/style>
-    </div>
-  </pre>
-  </details></li>
-  <!-- ******************************* -->
-  <li><details class="select">
-    <summary>INJECTION</summary>
-      <h2>	INJECTION </h2>
-    <ol>	
-    <li>Se usa para traer elementos de una página a otra</li>	
-    <li>EL Padre envia los datos usa el provide</li>	
-    <li>el hijo los recibe con inject</li>	
-    <li></li>	
-    <li>	Padre: Se importa el hijo, se crea la variable y se envía con provide	</li>
-    <li> Primero se pone el nombre de envio entre comillas simples</li>
-    <li> y a continuación la variable que se envia, sin comillas</li>
-    <li>Ejemplo: provide('envio', num) </li>
-    <li>	Hijo: se recibe con el inject 	</li>
-    <li> Ejemplo : let producto = inject('envio')</li>
-    <li>Se muestra la variable producto</li>
-    <li>	Para cambiar se crea una función en el hijo con un botón 	</li>
-    <li>	Y el valor que se quiere cambiar. Listo 	</li>
-    </ol>		
-    <img src="../media/vue/injection.png" alt="injection" class="img">
-      <pre>
-        <div>
-        <h2>PADRE</h2>
-    
-    &lt;template>
-      &lt;v-container :fluid="true">
-       &lt;h1>PADRE MÉTODO INJECTION&lt;/h1> &lt;br>&lt;br>
-    
-       &lt;WorkView/>
-      &lt;/v-container>
-    &lt;/template>
-    &lt;!-- ******************************* --> 
-    &lt;script setup>
-    import { provide, ref } from 'vue'
-    import WorkView from './WorkView.vue'
-    
-    let canal = ref('Sofia')
-    provide('cambio', canal)
-    &lt;/script>
-    &lt;!-- ******************************* -->
-    &lt;style scoped>
-    
-    &lt;/style>
-      //////////////////////////////////////////////////
-        <h2>HIJO</h2>
-    
-        &lt;template>
-        &lt;div>
-         &lt;h1>HIJO MÉTODO INJECTION&lt;/h1> 
-        &lt;h2>{{ canalHijo }}&lt;/h2> &lt;br>&lt;br>
-      &lt;v-btn @click="modificar">Cambiar&lt;/v-btn>
-      &lt;/div>
-      &lt;/template>
-      &lt;!-- ******************************* --> 
-      &lt;script setup>
-      import { inject } from 'vue';
-      
-      let canalHijo = inject('cambio')
-      
-      const modificar = () =>{
-        canalHijo.value = 'Ingrid'
-      }
-      
-      &lt;/script>
-      &lt;!-- ******************************* -->
-      &lt;style scoped>
-      div{
-        background-color: antiquewhite;
-        padding: 4em;
-      }
-      &lt;/style>
-        </div>
-      </pre>
-  </details></li>
-  <!-- ******************************* -->
-  <li><details class="select">
-    <summary></summary>
-    <ol>
-      <li class="li"></li>
-    </ol>
-  </details></li>
-  <!-- ******************************* -->
-</ol>
- </section>
-<!-- ////////////////////////////////////////////////// -->
- <section id="17">
   <h2 class="h1">SERVICE PLACEHOLDER</h2>
 <ol>
   <li><details class="select">
@@ -2733,7 +2905,7 @@ onMounted ( async () => {
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="18">
+ <section id="17">
   <h2 class="h1">FIREBASE</h2>
 <ol>
   <li><details class="select">
@@ -2819,7 +2991,7 @@ onMounted ( async () => {
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="19">
+ <section id="18">
   <h2 class="h1">PINIA</h2>
 <ol>
   <li><details class="select">
@@ -2848,7 +3020,7 @@ onMounted ( async () => {
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="20">
+ <section id="19">
   <h2 class="h1">PWA</h2>
 <ol>
   <li><details class="select">
@@ -2911,7 +3083,7 @@ onMounted ( async () => {
 </ol>
  </section>
 <!-- ////////////////////////////////////////////////// -->
- <section id="21">
+ <section id="20">
   <h2 class="h1">i18n</h2>
 <ol>
   <li><details class="select">
@@ -3164,6 +3336,26 @@ onMounted ( async () => {
     &lt;/style>
     </pre>
 
+  </details></li>
+  <!-- ******************************* -->
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
+  </details></li>
+  <!-- ******************************* -->
+</ol>
+ </section>
+<!-- ////////////////////////////////////////////////// -->
+ <section id="21">
+  <h2 class="h1"></h2>
+<ol>
+  <li><details class="select">
+    <summary></summary>
+    <ol>
+      <li class="li"></li>
+    </ol>
   </details></li>
   <!-- ******************************* -->
   <li><details class="select">
