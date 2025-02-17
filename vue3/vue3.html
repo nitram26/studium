@@ -2099,113 +2099,156 @@ let ahorro = 400
       <!-- ******************************* -->
       <li><details class="select">
         <summary>CALCULADORA</summary>
-      <pre>
-        
+   <pre>
+    &lt;template>
+  &lt;h1 class="mb-3">Calculadora&lt;/h1>
+  &lt;input type="number" v-model="num2" class="mt-2"> 
+  &lt;h1> &lt;span class="text-green">{{ msg }} &lt;/span> {{ num1 }} &lt;br> &lt;span class="text-red">{{ msg1 }}&lt;/span> &lt;/h1>
 
-&lt;template >
-&lt;h1 class=" ml-12">CALCULADORA&lt;/h1>
-    &lt;div>
-   &lt;br>
-        &lt;v-text-field
-          class="bg-teal-lighten-2 ml-12" 
-          v-model="num2"
-          type="number"
-          outlined  
-          width="20em"
-        >&lt;/v-text-field>
-   
-        &lt;h2 class="text-red ml-12">RESULTADO : {{ num1 }}&lt;/h2>
- 
-&lt;div class="uno">
-  &lt;v-btn @click="decrement" class="ma-2 mt-7 bg-purple">-&lt;/v-btn>
-    &lt;v-btn @click="increment" class="ma-2 mt-7 bg-teal">+&lt;/v-btn>
-    &lt;v-btn @click="multi" class="ma-2 mt-7 bg-cyan">*&lt;/v-btn>
-    &lt;v-btn @click="div" class="ma-2 mt-7 bg-blue">/&lt;/v-btn>
-  &lt;v-btn @click="potencia" class="ma-2 mt-7 bg-brown">Potencia&lt;/v-btn>
-&lt;/div>
-  &lt;div class="dos">
-  &lt;v-btn @click="raiz2" class="ma-2 mt-7 bg-amber">raíz2&lt;/v-btn>
-  &lt;v-btn @click="inicio" class="ma-2 mt-7 bg-pink">REINICIAR&lt;/v-btn>
-  &lt;/div>
-  
-    &lt;/div>
+  &lt;br>&lt;br>
+  &lt;v-btn  class="bg-red" @click="suma">+&lt;/v-btn>
+  &lt;v-btn  class="bg-blue ma-2" @click="resta">-&lt;/v-btn> 
+  &lt;v-btn  class="bg-teal ma-2" @click="multiplicacion">x&lt;/v-btn> 
+  &lt;v-btn  class="bg-yellow ma-2" @click="division">/&lt;/v-btn> 
+  &lt;v-btn  class="bg-orange ma-2" @click="porcentaje">%&lt;/v-btn> &lt;br>&lt;br>&lt;br>
+  &lt;v-btn  class="bg-indigo ma-2" @click="raiz2">√2&lt;/v-btn> 
+  &lt;v-btn  class="bg-blue-grey ma-2" @click="raiz3">√3&lt;/v-btn> 
+  &lt;v-btn  class="bg-cyan ma-2" @click="potencia">^&lt;/v-btn> 
+  &lt;v-btn  class="bg-pink ma-2" @click="hipotenusa">▲h&lt;/v-btn> 
+  &lt;v-btn  class="bg-amber ma-2" @click="cateto">▲c&lt;/v-btn> 
+  &lt;br>&lt;br>&lt;br>
+  &lt;v-btn  class="bg-purple ma-4" @click="reiniciar">Limpiar&lt;/v-btn>
+  &lt;v-btn  class="bg-brown" @click="reiniciar1">Reiniciar&lt;/v-btn>
+
 &lt;/template>
 &lt;!-- ************************************* -->
 &lt;script setup>
 import { ref } from 'vue';
+let num1=ref(0)
+let num2=ref(0)
+let msg=("")
+let msg1=("")
+let suma=()=>{
+if (num1.value === 0) {
+  num1.value+=num2.value
+  num2.value=0
+  msg1= " Ingrese otro número"
+} else {
+   msg= 'Resultado ='
+   msg1 = ''
+   num1.value+=num2.value
+   num2.value=0
+}
+}
+let reiniciar=()=>{
+  num2.value=0
+  num1.value=0
+}
+let resta=()=>{
+  if (num1.value===0) {
+    num1.value+=num2.value
+    num2.value=0
+    msg1= " Ingrese otro número"
+  } else {
+    msg= 'Resultado ='
+     msg1 = ''
+    num1.value-=num2.value
+    num2.value=0
+  }
+}
+let multiplicacion=()=>{
+  if (num1.value===0) {
+    num1.value+=num2.value
+  num2.value=0
+    msg1= " Ingrese otro número"
+  } else {
+    num1.value*=num2.value
+    num2.value=0
+      msg= 'Resultado ='
+     msg1 = ''
+  }
+}
+let division=()=>{
+  if (num1.value===0) {
+    num1.value+=num2.value
+  num2.value=0
+    msg1= " Ingrese el divisor"
+  } else {
+    num1.value/=num2.value
+    num2.value=0
+       msg= 'Resultado ='
+     msg1 = ''
+  }
+}
+let porcentaje=()=>{
+  if (num1.value==0) {
+    num1.value+=num2.value
+    num2.value=0
+       msg1= " Ingrese el porcentaje"
+  } else {
+    num1.value=num2.value*num1.value/100
+      msg= 'Resultado ='
+     msg1 = ''
+  }
+}
+let raiz2=()=>{
+  num1.value=Math.sqrt(num2.value)
+    msg= 'Resultado ='
+     msg1 = ''
+}
+let raiz3=()=>{
+  num1.value=Math.cbrt(num2.value)
+    msg= 'Resultado ='
+     msg1 = ''
+}
+let potencia=()=>{
+  if (num1.value===0) {
+    num1.value+=num2.value
+  num2.value=0
+     msg1= " Ingrese la potencia"
+  } else {
+    num1.value**=num2.value
+    num2.value=0
+     msg= 'Resultado ='
+     msg1 = ''
+  }
+}
 
-let num2= ref(0)
-let movimiento = ref(0)
-let num1 = ref(0)
-let increment =()=>{
-  num1.value += parseFloat(num2.value)
-  num2.value = null
-}
-let decrement =()=>{
+let hipotenusa=()=>{
   if (num1.value===0) {
-    num1.value += parseFloat(num2.value)
-    num2.value = null
+    msg="este cateto es:"
+    num1.value+=num2.value
+  num2.value=0   
+      msg1="ingrese el otro cateto:"
   } else {
-    num1.value -= parseFloat(num2.value)
-    num2.value = null
-  }
-   
-}
-let multi =()=>{
-  if (num1.value===0) {
-    num1.value += parseFloat(num2.value)
-    num2.value = null
-  } else {
-    num1.value *= parseFloat(num2.value)
-    num2.value = null
+    num1.value=Math.sqrt(num2.value**2+num1.value**2)
+    msg="resultado"
+    msg1=""
   }
 }
-let div =()=>{
+let cateto=()=>{
   if (num1.value===0) {
-    num1.value += parseFloat(num2.value)
-    num2.value = null
+    msg="este cateto es:"
+    msg1="ingrese la hipotenusa"
+    num1.value+=num2.value
+  num2.value=0
   } else {
-    num1.value /= parseFloat(num2.value)
-    num2.value = null
+    num1.value=Math.sqrt(num2.value**2-num1.value**2)
+    msg="resultado"
   }
+}
 
-}
-let potencia =()=>{
-  if (num1.value===0) {
-    num1.value += parseFloat(num2.value)
-    num2.value = null
-  } else {
-    num1.value = Math.pow(num1.value, num2.value)
-    num2.value = null
-  }
-    
-}
-let raiz2 =()=>{
-    num1.value = Math.sqrt(num2.value)
-    num2.value = null
-}
-let inicio =()=>{
-    num1.value = 0
-    num2.value = 0
+let reiniciar1 = ()=>{
+  location.reload(); 
 }
 &lt;/script>
 &lt;!-- ************************************* -->
 &lt;style scoped>
-.uno{
-  border: 5px double brown;
-  margin: 3em;
-  padding: 1em;
-  width: 40em;
-}
-.dos{
-  border: 5px double brown;
-  margin-bottom: 5em;
-  padding: 1em;
-  width: 40em;
-  margin-left: 3em;
+input{
+  border: 2px,solid,black;
 }
 &lt;/style>
-      </pre>
+   </pre>
       <img src="../media/vue/calculadoraVue.png" alt="calculadoraVue" class="img">
       </details></li>
       <!-- ******************************* -->
