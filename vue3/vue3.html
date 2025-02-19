@@ -25,7 +25,7 @@
     <li class="lih"><a href="#7">Checkbox</a></li>
     <li class="lih"><a href="#8">Select</a></li>
     <li class="lih"><a href="#9">CONDICIONAL TERNARIO</a></li>
-    <li class="lih"><a href="#10"></a></li>
+    <li class="lih"><a href="#10">PROPIEDADES COMPUTADAS</a></li>
     <li class="lih"><a href="#11">PRACTICA</a></li>
     <li class="lih"><a href="#12">PROPS-EMIT/INJECTION</a></li>
     <li class="lih"><a href="#13">RUTAS</a></li>
@@ -1903,13 +1903,58 @@ let ahorro = 400
 </section>
 <!-- ////////////////////////////////////////////////// -->
 <section id="10">
-  <h2 class="h1"></h2>
+  <h2 class="h1">PROPIEDADES COMPUTADAS</h2>
   <ol>
     <li><details class="select">
-      <summary></summary>
-      <ol>
-        <li class="li"></li>
-      </ol>
+      <summary>QUE SON</summary>
+    <P>
+      Las propiedades computadas son una herramienta poderosa en Vue para manejar la lógica de datos en forma sencilla y eficiente. Usarlas correctamente permite mantener el código limpio y reacts a los cambios en el estado de la aplicación, optimizando así el rendimiento y la claridad del mismo.
+    </P>
+    <P>
+      Las propiedades computadas en Vue.js son una característica que permite crear propiedades reactivas derivadas de otras propiedades reactivas o valores de datos. Su principal propósito es simplificar la lógica y el mantenimiento del estado de la aplicación, mejorando la legibilidad y eficiencia del código. <br><br>
+
+Características y Usos Específicos <br>
+Derivación de datos: Las propiedades computadas se utilizan para calcular valores que dependen de otros valores. Por ejemplo, puedes tener un campo que suma o multiplica otros valores reactivos en tu componente. Esto te ayuda a evitar lógica repetida en tus métodos.<br><br>
+
+Reactividad: Las propiedades computadas son reactivas. Esto significa que se recalculan automáticamente cuando cambian sus dependencias. Si alguno de los datos de los que depende cambia, Vue vuelve a ejecutar la función de la propiedad computada y actualiza la vista de manera eficiente.
+<br><br>
+Cacheo: Vue caches los resultados de las propiedades computadas. Solo se vuelven a calcular si sus dependencias cambian, lo que mejora el rendimiento en comparación con los métodos que se ejecutan cada vez que se renderiza el componente.<br><br>
+
+Manejo de lógica compleja: Permiten aislar y encapsular lógica compleja de manejo de datos. En lugar de tener lógica en tus métodos o en el template, puedes encapsular todo en una propiedad computada, lo que hace que tu código sea más limpio y fácil de entender.<br><br>
+    </P>
+    </details></li>
+    <!-- ******************************* -->
+    <li><details class="select">
+      <summary>EJEMPLO</summary>
+      <p>
+        Hacer un input que reciba un precio y muestre el impuesto y la suma del precio mas el impuesto
+      </p>
+      <pre>
+        &LT;template>
+    &LT;div>
+        &LT;h1>VUE3&LT;/h1>
+      &LT;input type="number" v-model="precio"> &LT;br>&LT;br>&LT;br>
+&LT;h3 class="text-teal">Pago de IGV : {{ impuesto }}&LT;/h3>&LT;br>&LT;br>
+&LT;h2 class="text-purple">El total a pagar es : {{ total }}&LT;/h2>&LT;br>
+    &LT;/div>
+&LT;/template>
+&LT;!-- ************************************* -->
+&LT;script setup>
+import { computed, ref } from 'vue';
+
+
+let precio=ref(0)
+let impuesto = computed(()=> precio.value*0.18)
+let total = computed(()=> precio.value+impuesto.value)
+&LT;/script>
+&LT;!-- ************************************* -->
+&LT;style scoped>
+input{
+
+  border: 2px solid brown;
+}
+&LT;/style>
+      </pre>
     </details></li>
     <!-- ******************************* -->
     <li><details class="select">
