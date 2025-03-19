@@ -20,23 +20,23 @@
     <li class="lih"><a href="#2">COMPONENTES, INTERPOLACIÓN Y SNIPPETS</a></li>
     <li class="lih"><a href="#3"> IF-SHOW</a></li>
     <li class="lih"><a href="#4">V-FOR</a></li>
-    <li class="lih"><a href="#5">v-bind </a></li>
-    <li class="lih"><a href="#6">v-model</a></li>
-    <li class="lih"><a href="#7">Checkbox</a></li>
-    <li class="lih"><a href="#8">Select</a></li>
+    <li class="lih"><a href="#5">V-BIND </a></li>
+    <li class="lih"><a href="#6">V-MODEL</a></li>
+    <li class="lih"><a href="#7">CHECKBOX</a></li>
+    <li class="lih"><a href="#8">SELECT</a></li>
     <li class="lih"><a href="#9">CONDICIONAL TERNARIO</a></li>
     <li class="lih"><a href="#10">PROPIEDADES COMPUTADAS</a></li>
+    <li class="lih"><a href="#21">DIRECTIVAS PERSONALIZADAS</a></li>
     <li class="lih"><a href="#11">PRACTICA</a></li>
     <li class="lih"><a href="#12">PROPS-EMIT/INJECTION</a></li>
     <li class="lih"><a href="#13">RUTAS</a></li>
     <li class="lih"><a href="#14">LAYOUTS, SLOTS & COMPOSABLES</a></li>
     <li class="lih"><a href="#15">ANIMACIONES  & ICONOS</a></li>
-    <li class="lih"><a href="#16"></a></li>
-    <li class="lih"><a href="#17"></a></li>
-    <li class="lih"><a href="#18"></a></li>
-    <li class="lih"><a href="#19"></a></li>
-    <li class="lih"><a href="#20"></a></li>
-    <li class="lih"><a href="#21"></a></li>
+    <li class="lih"><a href="#16">SERVICE PLACEHOLDER</a></li>
+    <li class="lih"><a href="#17">FIREBASE</a></li>
+    <li class="lih"><a href="#18">PINIA</a></li>
+    <li class="lih"><a href="#19">PWA</a></li>
+    <li class="lih"><a href="#20">i18n</a></li>
     <li class="lih"><a href="#22"></a></li>
     <li class="lih"><a href="#23"></a></li>
     <li class="lih"><a href="#24"></a></li>
@@ -71,9 +71,14 @@
   <ol>
     <li class="li">Crear una carpeta en el escritorio</li>
     <li class="li">Llevarla a VSCode</li>
-    <li class="li">En el terminal: <br> vue create nombreDeProyecto //enter</li>
+    <h3>Webpack 5</h3>
+    <li class="li">En el terminal: <br> vue create nombreDeProyecto //enter </li>
     <li class="li">Instalación manual: babel, typescript, linter // enter</li>
     <li class="li">Ir al proyecto y npm run serve </li>
+    <h3>Vite-Vuetify</h3>
+    <li class="li"> npm create vuetify@latest</li>
+
+
     <h3>Inicio </h3>
 
     <li class="li">Abrir el App.vue y borrar todo, haciendo la estructura básica de un componente</li>
@@ -1959,9 +1964,36 @@ input{
     <!-- ******************************* -->
     <li><details class="select">
       <summary></summary>
-      <ol>
-        <li class="li"></li>
-      </ol>
+     <pre>
+     
+&lt;template>
+  &lt;v-container>
+    &lt;label for="">Subtotales&lt;/label>
+    &lt;input type="number" v-model="subtotal"/> 
+    &lt;h3>Total Impuestos a pagar {{ totalVat }} ({{ vat }}%)&lt;/h3>
+  &lt;/v-container>
+
+&lt;/template>
+&lt;!-- ************************************* -->
+&lt;script setup>
+import {  computed, ref } from 'vue';
+
+const vat = 21
+let subtotal = ref(0);
+const totalVat = computed(()=> {
+return (vat*subtotal.value)/100})
+&lt;/script>
+&lt;!-- ************************************* -->
+&lt;style scoped>
+input{
+border: 1px solid white;
+margin-bottom: 2em;
+}
+label{
+margin: 1em;
+}
+&lt;/style>
+     </pre>
     </details></li>
     <!-- ******************************* -->
   </ol>
@@ -3437,13 +3469,100 @@ onMounted ( async () => {
  </section>
 <!-- ////////////////////////////////////////////////// -->
  <section id="21">
-  <h2 class="h1"></h2>
+  <h2 class="h1">DIRECTIVAS PERSONALIZADAS</h2>
 <ol>
   <li><details class="select">
-    <summary></summary>
-    <ol>
-      <li class="li"></li>
-    </ol>
+    <summary>Color y Font-size</summary>
+    <pre>
+      /**
+      * main.js
+      *
+      * Bootstraps Vuetify and other plugins then mounts the App`
+      */
+     
+     // Plugins
+     import { registerPlugins } from '@/plugins'
+     
+     // Components
+     import App from './App.vue'
+     
+     // Composables
+     import { createApp } from 'vue'
+     
+     const app = createApp(App)
+     registerPlugins(app)
+     
+     //////////////////// Directiva personalizada
+     app.directive('font-size', {
+       beforeMount: (el, binding) => {
+         // Para valor por defecto
+         // const fontSize = binding.value ? `${binding.value}em` : '4em'
+         //  el.style.fontSize = fontSize
+         el.style.fontSize = binding.value + "em"
+       }
+     })
+     ///////////////////////// con argumentos
+     app.directive('custom', {
+       beforeMount: (el, binding) => {
+         let size = 1 // Valor por defecto
+     
+         switch (binding.arg) {
+           case 'sm':
+             size = 2
+             break
+           case 'md':
+             size = 3
+             break
+           case 'lg':
+             size = 4
+             break
+         }
+     
+         el.style.fontSize = size + "em"
+       }
+     })
+     //////////////////// Directiva CON MODIFICADORES
+     app.directive('custom-mod', {
+       beforeMount: (el, binding) => {
+         let size = 1;
+     
+         // Definir tamaño según el modificador
+         if (binding.modifiers.sm) {
+           size = 2;
+         } else if (binding.modifiers.md) {
+           size = 3;
+         } else if (binding.modifiers.lg) {
+           size = 4;
+         }
+     
+         el.style.fontSize = size + "em";
+     
+         // Definir color según el modificador
+         if (binding.modifiers.red) {
+           el.style.color = '#ff0000';
+         } else if (binding.modifiers.green) {
+           el.style.color = '#00ff00';
+         } else if (binding.modifiers.blue) {
+           el.style.color
+         }
+       }
+     });
+     
+     // **************************
+     app.mount('#app')
+     
+     //////////////////////////////////////////////////////
+     
+     &lt;template>
+       &lt;v-container>
+         &lt;label v-font-size="2" >Subtotales&lt;/label>
+         &lt;input type="number" v-model="subtotal"/> 
+         &lt;h3 v-custom:md>Total Impuestos a pagar {{ totalVat }} ({{ vat }}%)&lt;/h3>
+         &lt;h4 v-custom-mod.sm.red>BUEN DÍA&lt;/h4>
+       &lt;/v-container>
+     
+     &lt;/template>
+    </pre>
   </details></li>
   <!-- ******************************* -->
   <li><details class="select">

@@ -9,5 +9,6 @@
     "Reactividad",
     "Renderizado",
     "Renderizados"
-  ]
+  ],
+  "liveServer.settings.port": 5503
 }

@@ -49,7 +49,7 @@ body {
   margin: 1em;
 }
 .img{
-  width: 30em;
+  width: 3em;
   margin: 1em;
   padding: 0.5em;
   border: 7px double brown;
@@ -106,7 +106,7 @@ margin: 1em;
 
 .lih>a{
   text-decoration: none;
-  color: blue;
+  color: black;
 }
 
 /* Para que no se esconda debajo del header el titulo */
